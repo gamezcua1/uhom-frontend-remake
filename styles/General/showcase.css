@@ -1,0 +1,15 @@
+.filter-center{
+    text-align: center;
+    padding: 0.7rem;
+  }
+.ui.dropdown.dropdown-selective{
+  background-color: var(--mainWhite);
+  color:var(--mainGrey);
+  border-color: var(--mainGrey);
+  border-width: 0.3rem;
+}
+
+
+
+
+

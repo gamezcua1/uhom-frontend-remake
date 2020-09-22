@@ -1,0 +1,54 @@
+/* Banner */
+.banner {
+  display: inline;
+  vertical-align: middle;
+  padding: 2rem 1rem;
+  text-align: center;
+  letter-spacing: var(--mainSpacing);
+  top: 35%;
+  left: 25%;
+  right: 25%;
+  position: absolute;
+}
+
+.dark{
+  color: var(--mainWhite);
+}
+
+.banner h1 {
+  font-size: 2.5rem;
+}
+
+.banner div {
+  width: 10rem;
+  height: 5px;
+  background: var(--primaryColor);
+  margin: 1.7rem auto;
+}
+
+.banner p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+@media screen and (min-width: 576px) {
+  .banner {
+    padding: 2rem 3rem;
+  }
+
+  .banner h1 {
+    font-size: 3rem;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .banner {
+    padding: 2rem 6rem;
+  }
+
+  .banner h1 {
+    font-size: 4rem;
+  }
+}
+
+/* End of Banner */

@@ -1,0 +1,11 @@
+h3.ui.header{
+  font-size: 1.5rem;
+}
+
+h3.ui.header .sub.header{
+  font-size: 1.5rem;
+}
+
+/* .ui.header .sub.header{
+  display: inline;
+} */

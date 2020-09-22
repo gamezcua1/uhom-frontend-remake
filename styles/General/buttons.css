@@ -1,0 +1,22 @@
+.ui.button.btn-signin{
+  background-color: var(--primaryColor);
+  color: var(--mainBlack);
+}
+
+.ui.button.btn-signin:hover{
+  background-color: var(--primaryColorShadow);
+}
+
+.ui.button.btn-login{
+  background-color: var(--mainGrey);
+  color: var(--mainWhite);
+  align-items: baseline;
+}
+
+.ui.button.btn-login:hover{
+  background-color: var(--mainGreyShadow);
+}
+
+.button-container{
+  justify-content: space-between;
+}

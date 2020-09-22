@@ -1,18 +1,18 @@
-.ui.secondary.pointing.menu .item{
+.ui.secondary.pointing.menu .item {
   color: var(--darkGrey);
 }
 
-.ui.secondary.pointing.menu .active.item{
+.ui.secondary.pointing.menu .active.item {
   color: var(--darkGrey);
   border-color: var(--darkGrey);
 }
 
-.ui.secondary.pointing.menu .active.item:hover{
+.ui.secondary.pointing.menu .active.item:hover {
   color: var(--offWhite);
   border-color: var(--offWhite);
 }
 
-.ui.pagination.menu{
+.ui.pagination.menu {
   margin: 16px 0px;
   font-size: medium;
   box-shadow: 2px 4px 10px #cccccc;

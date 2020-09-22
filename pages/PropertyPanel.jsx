@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from "react";
-import {useParams} from "react-router-dom"
-import { Redirect, withRouter } from "react-router-dom/cjs/react-router-dom.min";
+import { useParams } from "react-router-dom";
+import {
+  Redirect,
+  withRouter,
+} from "react-router-dom/cjs/react-router-dom.min";
 import PropertiesController from "../../controllers/PropertiesController";
-import Panel from "../smart/PropertyPanel/Panel"
+import Panel from "../smart/PropertyPanel/Panel";
 
 const defaultProperty = {
   uuid: null,
@@ -11,7 +14,7 @@ const defaultProperty = {
   address: null,
   likes_info: {
     total_likes: 0,
-    currently_liked: false
+    currently_liked: false,
   },
   bedrooms: 0,
   bathrooms: 0,
@@ -20,34 +23,31 @@ const defaultProperty = {
   location: {
     city: null,
     state: null,
-    country: null
-  }
-}
+    country: null,
+  },
+};
 
-function PropertyPanel(props){
-  const { property_uuid } = useParams()
+function PropertyPanel(props) {
+  const { property_uuid } = useParams();
   const [property, setProperty] = useState(defaultProperty);
 
   useEffect(() => {
-    PropertiesController.show(property_uuid)
-    .then(res => {
-      if(res.status === 200){
-        setProperty(res.data)
+    PropertiesController.show(property_uuid).then((res) => {
+      if (res.status === 200) {
+        setProperty(res.data);
       }
-    })
-  }, [property_uuid])
-  
-  return(
+    });
+  }, [property_uuid]);
+
+  return (
     <>
-      {
-        property
-        ? <Panel propertyInfo={property}
-            propertyLocation={property.location}
-          />
-        : <Redirect to="/properties" />
-      }
+      {property ? (
+        <Panel propertyInfo={property} propertyLocation={property.location} />
+      ) : (
+        <Redirect to="/properties" />
+      )}
     </>
-  )
+  );
 }
 
 export default withRouter(PropertyPanel);

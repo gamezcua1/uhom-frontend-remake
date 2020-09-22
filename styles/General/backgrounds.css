@@ -1,4 +1,4 @@
-.dark-bg-solid{
+.dark-bg-solid {
   min-height: calc(100vh - 66px);
   position: relative;
   padding-top: 1rem;
@@ -10,7 +10,7 @@
   flex-direction: column;
 }
 
-.dark-bg-solid h3{
+.dark-bg-solid h3 {
   color: var(--mainWhite);
   margin-bottom: 0.5em;
   /* margin-bottom: 2rem;

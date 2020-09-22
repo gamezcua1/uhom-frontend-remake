@@ -1,24 +1,24 @@
-.ui.form.dark{
+.ui.form.dark {
   background-color: transparent;
 }
 
-.ui.form{
+.ui.form {
   border: 1px solid var(--primaryColor);
   padding: 4rem 5rem;
   border-radius: 1rem;
   justify-content: center;
 }
 
-.form-header{
+.form-header {
   display: flex;
   justify-content: center;
 }
 
-.ui.form.dark h3{
+.ui.form.dark h3 {
   color: var(--mainWhite);
   text-align: center;
 }
 
-.ui.form.dark label{
+.ui.form.dark label {
   color: var(--mainWhite);
 }

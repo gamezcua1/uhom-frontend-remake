@@ -1,14 +1,14 @@
-.fluid{
+.fluid {
   display: grid;
   padding: 0.5rem 0;
 }
 
-.body-container{
+.body-container {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
 }
 
-.content{
+.content {
   flex: 1 0 auto;
 }

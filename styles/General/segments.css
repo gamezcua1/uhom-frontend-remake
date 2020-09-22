@@ -1,13 +1,13 @@
-.ui.segment.scrollable{
+.ui.segment.scrollable {
   overflow: auto;
   height: 150px;
 }
 
-.ui.segment.profile-segment{
-  background: rgba(45,126,173,1);
+.ui.segment.profile-segment {
+  background: rgba(45, 126, 173, 1);
   height: auto;
 }
 
-.ui.segment.form-logo-segment{
+.ui.segment.form-logo-segment {
   padding-bottom: 0;
 }

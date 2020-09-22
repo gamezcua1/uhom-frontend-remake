@@ -1,4 +1,4 @@
-.dark-error{
+.dark-error {
   color: var(--mainWhite);
   font-size: 1rem;
   color: var(--error);
@@ -9,10 +9,10 @@
   margin-top: 0.5rem;
 }
 
-.fluid-error{
+.fluid-error {
   padding: 0.5rem 1rem;
 }
 
-.ui.input.input-error{
+.ui.input.input-error {
   background-color: #000000;
 }

@@ -1,35 +1,30 @@
 import React from "react";
-import Link from 'next/link'
+import Link from "next/link";
 import Hero from "../components/layout/Hero";
 import Banner from "../components/layout/Banner";
 // import { useSessionInfo } from "../../services/sessionInfo";
 // import { useUserContext } from "../../UserContext";
 
-
 const Home = () => {
-  const { isLogged } = {isLogged: false} // useUserContext();
+  const { isLogged } = { isLogged: false }; // useUserContext();
 
   // const session = useSessionInfo();
 
-  const subtitle = () => isLogged
-    ? `Bienvenido ${ session.names }.`
-    : "Registrate y visita la casa de tus sueños."
-
+  const subtitle = () =>
+    isLogged
+      ? `Bienvenido ${session.names}.`
+      : "Registrate y visita la casa de tus sueños.";
 
   return (
-  <Hero>
-    <Banner
-      title="GoHOME's"
-      subtitle={subtitle()}
-      dark
-    >
-      <Link href="/properties">
-        <a className="btn-primary">
-          <strong>Nuestras casas</strong>
-        </a>
-      </Link>
-    </Banner>
-  </Hero>
+    <Hero>
+      <Banner title="GoHOME's" subtitle={subtitle()} dark>
+        <Link href="/properties">
+          <a className="btn-primary">
+            <strong>Nuestras casas</strong>
+          </a>
+        </Link>
+      </Banner>
+    </Hero>
   );
 };
 

@@ -26,5 +26,6 @@ module.exports = {
   rules: {
     "prettier/prettier": ["error", {}, { usePrettierrc: true }],
     "react/prop-types": 0,
+    "jsx-a11y/anchor-is-valid": 0,
   },
 };

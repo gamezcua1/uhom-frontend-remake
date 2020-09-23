@@ -21,6 +21,7 @@
     "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc"
   },
   "dependencies": {
+    "axios": "^0.20.0",
     "cleave.js": "^1.6.0",
     "next": "^9.4.4",
     "react": "^16.13.1",
@@ -29,9 +30,9 @@
     "react-image-magnify": "^2.7.4",
     "react-slick": "^0.27.10",
     "sass": "^1.26.10",
-    "semantic-ui-react": "^0.88.2",
     "semantic-ui-css": "^2.4.1",
-    "swr": "^0.3.2",
+    "semantic-ui-react": "^0.88.2",
+    "swr": "^0.3.3",
     "unfetch": "^4.1.0",
     "yup": "^0.29.1"
   },

@@ -51,7 +51,7 @@ export default function PropertyCard({ propertyInfo }) {
           </Card.Description>
         </Card.Content>
         <Card.Content extra textAlign="center">
-          <Link href={`/property/${uuid}`}>Ver más...</Link>
+          <Link href={`/properties/${uuid}`}>Ver más...</Link>
         </Card.Content>
       </Card>
     </Grid.Column>

@@ -1,18 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 
-import PropertiesList from "../components/properties/PropertiesList";
-import { getTotalPages } from "../lib/services/PaginationService";
-import Banner from "../components/properties/PropertiesList";
-import { useSessionInfo } from "../lib/services/SessionInfo";
-import { usePropertiesIndex } from "../lib/hooks/properties";
+import PropertiesList from "../../components/properties/PropertiesList";
+import { getTotalPages } from "../../lib/services/PaginationService";
+import Banner from "../../components/properties/PropertiesList";
+import { useSessionInfo } from "../../lib/services/SessionInfo";
+import { usePropertiesIndex } from "../../lib/hooks/properties";
 
 const PropertiesCatalog = () => {
   const noResultsMessage =
     "No se encuentraron propiedades con las características especificadas.";
   const router = useRouter();
   const { id } = useSessionInfo() || {};
-
   const [page, setPage] = useState(router.query.page || 1);
   const [totalPages, setTotalPages] = useState(1);
   const { properties, itemsPerPage, totalItems } = usePropertiesIndex({

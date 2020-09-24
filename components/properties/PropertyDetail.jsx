@@ -1,7 +1,7 @@
 import React from "react";
 import { Grid } from "semantic-ui-react";
-import PropertyCarousel from "./Carousel";
-import PropertyInfo from "./PropertyInfo";
+import PropertyCarousel from "./PropertyDescription/PropertyCarousel";
+import PropertyInfo from "./PropertyDescription/PropertyInfo";
 
 export default function Panel(props) {
   const { propertyInfo, propertyLocation } = props;

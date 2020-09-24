@@ -1,18 +1,20 @@
 import React from "react";
 import "../styles/index.scss";
 import "semantic-ui-css/semantic.min.css";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
 import "../components/layout/DesktopNavbar";
-import DesktopNavbar from "../components/layout/DesktopNavbar";
 import axios from "axios";
+import MainLayout from "../layouts/MainLayout";
 
 axios.defaults.baseURL = process.env.NEXT_PUBLIC_API_URL;
 
 function MyApp({ Component, pageProps }) {
   return (
-    <>
-      <DesktopNavbar />
+    <MainLayout>
       <Component {...pageProps} />
-    </>
+    </MainLayout>
   );
 }
 

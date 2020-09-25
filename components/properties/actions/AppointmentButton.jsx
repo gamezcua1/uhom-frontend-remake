@@ -1,13 +1,11 @@
 import React, { useState } from "react";
-import Link from "next/link";
-// import { useUserContext } from "../../../UserContext";
 import SigninFirst from "../../modals/SignInFirst";
+import { Button } from "semantic-ui-react";
+import { useCurrentUser } from "../../../lib/context/UserContext";
 
-export default function AppopinmentButton(props) {
-  const { address, price } = props;
+export default function AppopinmentButton({address, price}) {
   const [modalOpen, handleModal] = useState(false);
-  // const { isLogged } = useUserContext();
-  const isLogged = false;
+  const { isLoggedIn } = useCurrentUser()
   const baseUri = "https://api.whatsapp.com/send?";
   const defaultPhone = "5213121042284";
 
@@ -21,7 +19,7 @@ export default function AppopinmentButton(props) {
   };
 
   const setModal = () => handleModal(!modalOpen);
-  const handleAppoinment = () => (isLogged ? sendMessage() : setModal());
+  const handleAppoinment = () => (isLoggedIn() ? sendMessage() : setModal());
 
   return (
     <div>
@@ -29,13 +27,12 @@ export default function AppopinmentButton(props) {
         <SigninFirst isOpen={modalOpen} handleModal={setModal} />
       </div>
       <div className="fluid">
-        <Link
-          href="#"
-          className="ui button btn-signin"
+        <Button 
+          className="btn-signin"
           onClick={() => handleAppoinment()}
         >
-          <a> ¡Haz una cita, visita la casa! </a>
-        </Link>
+          ¡Haz una cita, visita la casa! 
+        </Button>
       </div>
     </div>
   );

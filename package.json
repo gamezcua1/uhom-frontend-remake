@@ -9,8 +9,9 @@
     }
   },
   "lint-staged": {
-    "./**/*.{js,jsx,ts,tsx}": [
-      "eslint --fix"
+    "./*/.{js,jsx,ts,tsx}": [
+      "eslint --fix",
+      "prettier --check './*/.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc"
     ]
   },
   "scripts": {
@@ -21,6 +22,7 @@
     "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc"
   },
   "dependencies": {
+    "@hookform/resolvers": "^0.1.1",
     "axios": "^0.20.0",
     "cleave.js": "^1.6.0",
     "next": "^9.4.4",

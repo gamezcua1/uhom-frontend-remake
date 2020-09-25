@@ -2,7 +2,7 @@ import React from "react";
 import { Container, Image, Menu } from "semantic-ui-react";
 import NavbarItems from "./NavbarItems";
 import Link from "next/link";
-// import NavbarRightItems from "./NavbarRightItems";
+import NavbarRightItems from "./NavbarRightItems";
 
 const DesktopNavbar = () => {
   return (
@@ -14,6 +14,7 @@ const DesktopNavbar = () => {
           </Link>
         </Menu.Item>
         <NavbarItems />
+        <NavbarRightItems />
       </Container>
     </Menu>
   );

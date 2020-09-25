@@ -1,28 +1,30 @@
-import React from "react";
-import "../../static/styles/General/backgrounds.css";
-import { LoginForm } from "../smart/Login/LoginForm";
-import { Link, Redirect, withRouter } from "react-router-dom";
-import { useUserContext } from "../../UserContext";
-import FormLogoHeader from "../smart/Segments/FormLogoHeader";
+import React, { useEffect } from "react";
+import LoginForm from "../components/login/LoginForm";
+import { useUserContext } from "../lib/context/UserContext";
+import FormLogoHeader from "../components/shared/FormLogoHeader";
+import { useRouter } from "next/router";
+import Link from "next/link";
 
 function Login() {
+  const router = useRouter();
   const { isLogged } = useUserContext();
 
+  useEffect(() => {
+    if (isLogged) router.push("/properties");
+  }, []);
+
   return (
-    <>
-      {isLogged ? (
-        <Redirect to="/properties" />
-      ) : (
-        <div className="dark-bg-solid">
-          <FormLogoHeader message="Inicia sesión en GoHome's" />
-          <LoginForm />
-          <p className="general-callout">
-            ¿Aún no tienes cuenta? <Link to="/signin">Registrate aquí.</Link>
-          </p>
-        </div>
-      )}
-    </>
+    <div className="dark-bg-solid">
+      <FormLogoHeader message="Inicia sesión en GoHome's" />
+      <LoginForm />
+      <p className="general-callout">
+        ¿Aún no tienes cuenta?
+        <Link href="/signin" passHref>
+          <a> Registrate aquí. </a>
+        </Link>
+      </p>
+    </div>
   );
 }
 
-export default withRouter(Login);
+export default Login;

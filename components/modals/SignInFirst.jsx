@@ -27,7 +27,7 @@ const SigninFirst = ({ isOpen, handleModal }) => {
 
         <Button
           className="btn-login"
-          onClick={() => router.push("/signin")}
+          onClick={() => router.push("/signup")}
           icon
         >
           Registrarse

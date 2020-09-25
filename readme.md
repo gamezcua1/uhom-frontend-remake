@@ -1,6 +1,7 @@
 # :house: uhom front-end
 
 ## Requirements
+
 - **Node:** >= 10
 - **Yarn:** >= 1
 
@@ -20,7 +21,7 @@ Finally, run the server and go to _http://localhost:3001_
 > yarn dev
 ```
 
-To lint the code 
+To lint the code
 
 ```bash
 > yarn lint

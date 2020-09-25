@@ -2,13 +2,13 @@ import React from "react";
 import { Dropdown, Image } from "semantic-ui-react";
 import { logoutHandler } from "../../lib/services/session/AuthService";
 import { useSessionInfo } from "../../lib/services/SessionInfo";
-import { useUserDispatch } from "../../lib/context/UserContext";
+// import { useUserDispatch } from "../../lib/context/UserContext";
 import { useRouter } from "next/router";
 import { redirectTo } from "../../lib/helpers/pathValidations";
 
 const Avatar = () => {
   const session = useSessionInfo();
-  const dispatch = useUserDispatch();
+  const dispatch = () => {};
   const BASE_URI = `/user/${session.id}`;
 
   const router = useRouter();

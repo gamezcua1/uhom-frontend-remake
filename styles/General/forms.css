@@ -20,5 +20,5 @@
 }
 
 .ui.form.dark label {
-  color: var(--mainWhite);
+  color: var(--mainWhite) !important;
 }

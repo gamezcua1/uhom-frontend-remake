@@ -8,7 +8,7 @@ import {
   notRequiredValidations,
   signupValidations,
   validationsAfterSubmit,
-} from "../../lib/services/validations/ValidationsSchemas";
+} from "../../lib/validations/ValidationsSchemas";
 
 const UserForm = ({
   user,

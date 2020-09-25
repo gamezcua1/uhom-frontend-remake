@@ -8,7 +8,8 @@ import "../components/layout/DesktopNavbar";
 import axios from "axios";
 import MainLayout from "../layouts/MainLayout";
 
-axios.defaults.baseURL = process.env.NEXT_PUBLIC_API_URL;
+axios.defaults.baseURL =
+  process.env.NEXT_PUBLIC_API_URL || "http://localhost:4000";
 
 function MyApp({ Component, pageProps }) {
   return (

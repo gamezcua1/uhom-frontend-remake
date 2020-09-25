@@ -8,7 +8,7 @@ import {
   notRequiredValidations,
   signupValidations,
   validationsAfterSubmit,
-} from "../../lib/services/validations/ValidationsSchemas";
+} from "../../lib/validations/ValidationsSchemas";
 
 const UserForm = ({
   user,
@@ -45,8 +45,8 @@ const UserForm = ({
         onSubmit={handleSubmit(submitionHandler)}
       >
         <Form.Field required={required}>
+          <label htmlFor="names"> Nombre(s): </label>
           <div className="ui input">
-            <label htmlFor="names"> Nombre(s): </label>
             <input
               name="names"
               placeholder="Nombre(s)"
@@ -58,8 +58,8 @@ const UserForm = ({
         </Form.Field>
 
         <Form.Field required={required}>
+          <label htmlFor="surnames"> Apellido(s): </label>
           <div className="ui input">
-            <label htmlFor="surnames"> Apellido(s): </label>
             <input
               name="surnames"
               placeholder="Apellido(s)"
@@ -74,8 +74,8 @@ const UserForm = ({
 
         <Form.Group widths="equal">
           <Form.Field required={required}>
+            <label htmlFor="email"> Email: </label>
             <div className="ui input">
-              <label htmlFor="email"> Email: </label>
               <input
                 name="email"
                 type="email"
@@ -90,8 +90,8 @@ const UserForm = ({
           </Form.Field>
 
           <Form.Field required={required}>
+            <label htmlFor="phone_number"> Celular: </label>
             <div className="ui input">
-              <label htmlFor="phone_number"> Celular: </label>
               <Controller
                 as={
                   <Cleave
@@ -116,8 +116,8 @@ const UserForm = ({
 
         <Form.Group widths="equal">
           <Form.Field required={required}>
+            <label htmlFor="password"> Contraseña: </label>
             <div className="ui input">
-              <label htmlFor="password"> Contraseña: </label>
               <input
                 name="password"
                 type="password"
@@ -131,11 +131,8 @@ const UserForm = ({
           </Form.Field>
 
           <Form.Field required={required}>
+            <label htmlFor="password_confirmation">Confirmar contraseña:</label>
             <div className="ui input">
-              <label htmlFor="password_confirmation">
-                {" "}
-                Confirmar contraseña:{" "}
-              </label>
               <input
                 name="password_confirmation"
                 type="password"

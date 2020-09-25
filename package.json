@@ -9,8 +9,9 @@
     }
   },
   "lint-staged": {
-    "./**/*.{js,jsx,ts,tsx}": [
-      "eslint --fix"
+    "./*/.{js,jsx,ts,tsx}": [
+      "eslint --fix",
+      "prettier --check './*/.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc"
     ]
   },
   "scripts": {

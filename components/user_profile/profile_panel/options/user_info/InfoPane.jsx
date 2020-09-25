@@ -6,7 +6,7 @@ import UserForm from "../../../../forms/UserForm";
 import { Container, Header } from "semantic-ui-react";
 import { useUserInfo } from "../../../../../lib/hooks/users";
 import UsersController from "../../../../../controllers/UsersController";
-import cleanEmpties from "../../../../../lib/hooks/dataFormater";
+import { cleanEmpties } from "../../../../../lib/hooks/dataFormater";
 
 const InfoPane = ({ userId, bearerToken }) => {
   const [responseErrors, setErrors] = useState({});

@@ -8,7 +8,7 @@ const SessionOptions = () => {
   return (
     <div>
       <Button.Group size="small">
-        <Button className="btn-signin" onClick={() => router.push("/signin")}>
+        <Button className="btn-signin" onClick={() => router.push("/signup")}>
           Registrarse
         </Button>
         <Button.Or text="o" />

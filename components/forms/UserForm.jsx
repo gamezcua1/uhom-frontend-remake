@@ -156,15 +156,13 @@ const UserForm = ({
           <Button className="btn-login" type="submit" icon>
             <Icon name={iconName} /> {submitMessage}
           </Button>
-          {isCancelable ? (
+          {isCancelable && (
             <>
               <Divider hidden />
               <Button onClick={closeForm} className="btn-signin" icon>
                 <Icon name="undo" /> Regresar
               </Button>
             </>
-          ) : (
-            ""
           )}
         </div>
       </Form>

@@ -4,19 +4,16 @@ import { useRouter } from "next/router";
 import PropertiesList from "../../components/properties/PropertiesList";
 import { getTotalPages } from "../../lib/services/PaginationService";
 import Banner from "../../components/properties/PropertiesList";
-import { useSessionInfo } from "../../lib/services/SessionInfo";
 import { usePropertiesIndex } from "../../lib/hooks/properties";
 
 const PropertiesCatalog = () => {
   const noResultsMessage =
     "No se encuentraron propiedades con las características especificadas.";
   const router = useRouter();
-  const { id } = useSessionInfo() || {};
   const [page, setPage] = useState(router.query.page || 1);
   const [totalPages, setTotalPages] = useState(1);
   const { properties, itemsPerPage, totalItems } = usePropertiesIndex({
     page,
-    user_id: id,
   });
 
   const updateTotalPages = () => {
@@ -28,7 +25,7 @@ const PropertiesCatalog = () => {
     updateTotalPages();
   }, [totalItems, router.query]);
 
-  const handleChange = (event, data) => {
+  const handleChange = (_event, data) => {
     const currentPage = data.activePage;
     setPage(currentPage);
     router.push(`/properties?page=${currentPage}`);

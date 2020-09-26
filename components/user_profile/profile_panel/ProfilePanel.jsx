@@ -1,13 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Tab } from "semantic-ui-react";
+import { UserContext } from "../../../lib/context/UserContext";
 import panes from "./options/profilePanes";
-import session from "../fakeSession";
 
 const ProfilePanel = () => {
+  const { currentUser, token } = useContext(UserContext);
+
   return (
     <Tab
       menu={{ secondary: true, pointing: true }}
-      panes={panes(session.id, session.authorization)}
+      panes={panes(currentUser.uuid, token)}
     />
   );
 };

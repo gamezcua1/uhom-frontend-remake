@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 import { Menu } from "semantic-ui-react";
 
-export default function NavbarItems(props) {
+export default function NavbarItems() {
   return (
     <>
       <Link href="/">

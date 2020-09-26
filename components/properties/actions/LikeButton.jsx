@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Button, Menu } from "semantic-ui-react";
 import LikesController from "../../../controllers/LikesController";
-import { useSessionInfo } from "../../../lib/services/SessionInfo";
+import { UserContext } from "../../../lib/context/UserContext";
 import SigninFirst from "../../modals/SignInFirst";
 
 export default function LikeButton({ likesInfo, propertyId }) {
@@ -9,7 +9,7 @@ export default function LikeButton({ likesInfo, propertyId }) {
     total_likes: totalLikes,
     currently_liked: currentlyLiked,
   } = likesInfo;
-  const session = useSessionInfo();
+  const { currentUser, token } = useContext(UserContext);
   const [likesTotal, setTotal] = useState(totalLikes);
   const [isLiked, setLikeState] = useState(currentlyLiked);
   const [isOpen, setToggle] = useState(false);
@@ -17,13 +17,11 @@ export default function LikeButton({ likesInfo, propertyId }) {
   const openModal = () => setToggle(!isOpen);
 
   const handleLike = () => {
-    if (session) {
-      LikesController.post(session.authorization, propertyId, session.id).then(
-        () => {
-          updateTotalLikes();
-          setLikeState(!isLiked);
-        }
-      );
+    if (currentUser) {
+      LikesController.post(token, propertyId, currentUser.uuid).then(() => {
+        updateTotalLikes();
+        setLikeState(!isLiked);
+      });
     } else openModal();
   };
 

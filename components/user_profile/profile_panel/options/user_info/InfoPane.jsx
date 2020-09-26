@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import UserInfo from "./UserInfo";
 import Loading from "../../../../shared/loading";
-import UserForm from "../../../../forms/UserForm";
+import UserForm from "../../../../users/UserForm";
 import { Container, Header } from "semantic-ui-react";
 import { useUserInfo } from "../../../../../lib/hooks/users";
 import UsersController from "../../../../../controllers/UsersController";

@@ -15,7 +15,7 @@ const UserShow = () => {
     if (userId && !isAuthorized()) router.push("/");
   }, [userId]);
 
-  if (!userId) return <Loading />;
+  if (!userId || !currentUser) return <Loading />;
   return (
     <>
       <ProfileHeader

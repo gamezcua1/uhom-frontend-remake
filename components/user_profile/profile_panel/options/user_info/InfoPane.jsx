@@ -1,14 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import UserInfo from "./UserInfo";
-import session from "../../../fakeSession";
 import Loading from "../../../../shared/loading";
 import UserForm from "../../../../forms/UserForm";
 import { Container, Header } from "semantic-ui-react";
 import { useUserInfo } from "../../../../../lib/hooks/users";
 import UsersController from "../../../../../controllers/UsersController";
 import { cleanEmpties } from "../../../../../lib/hooks/dataFormater";
+import { UserContext } from "../../../../../lib/context/UserContext";
 
 const InfoPane = ({ userId, bearerToken }) => {
+  const { currentUser, token } = useContext(UserContext)
   const [responseErrors, setErrors] = useState({});
   const [isEditable, setEdition] = useState(false);
   const { user, error } = useUserInfo(userId, bearerToken);
@@ -17,9 +18,8 @@ const InfoPane = ({ userId, bearerToken }) => {
 
   const updateUserInfo = (data) => {
     const cleanData = cleanEmpties(data);
-    UsersController.update(session.id, cleanData, session.authorization)
+    UsersController.update(currentUser.id, cleanData, token)
       .then(() => {
-        // setLocalStorage(res, session.authorization)
         window.location.reload();
       })
       .catch((err) => setErrors(err.response.data.details));

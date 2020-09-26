@@ -1,22 +1,23 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { useRouter } from "next/router";
 
 import PropertiesList from "../../components/properties/PropertiesList";
 import { getTotalPages } from "../../lib/services/PaginationService";
 import Banner from "../../components/properties/PropertiesList";
-import { useSessionInfo } from "../../lib/services/SessionInfo";
 import { usePropertiesIndex } from "../../lib/hooks/properties";
+import { UserContext } from "../../lib/context/UserContext";
 
 const PropertiesCatalog = () => {
+  const { currentUser } = useContext(UserContext);
+
   const noResultsMessage =
     "No se encuentraron propiedades con las características especificadas.";
   const router = useRouter();
-  const { id } = useSessionInfo() || {};
   const [page, setPage] = useState(router.query.page || 1);
   const [totalPages, setTotalPages] = useState(1);
   const { properties, itemsPerPage, totalItems } = usePropertiesIndex({
     page,
-    user_id: id,
+    user_id: currentUser.id,
   });
 
   const updateTotalPages = () => {
@@ -28,7 +29,7 @@ const PropertiesCatalog = () => {
     updateTotalPages();
   }, [totalItems, router.query]);
 
-  const handleChange = (event, data) => {
+  const handleChange = (_event, data) => {
     const currentPage = data.activePage;
     setPage(currentPage);
     router.push(`/properties?page=${currentPage}`);

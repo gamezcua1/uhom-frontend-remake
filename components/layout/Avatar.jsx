@@ -1,15 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Dropdown, Image } from "semantic-ui-react";
-import { logoutHandler } from "../../lib/services/session/AuthService";
-import { useSessionInfo } from "../../lib/services/SessionInfo";
-// import { useUserDispatch } from "../../lib/context/UserContext";
+import { LogoutService } from "../../lib/services/session/AuthService";
+import { UserContext } from "../../lib/context/UserContext";
 import { useRouter } from "next/router";
-import { redirectTo } from "../../lib/helpers/pathValidations";
 
 const Avatar = () => {
-  const session = useSessionInfo();
-  const dispatch = () => {};
-  const BASE_URI = `/user/${session.id}`;
+  const { logout, token, currentUser } = useContext(UserContext);
+  const BASE_URI = `/user/${currentUser.uuid}`;
+
+  console.log({ BASE_URI })
 
   const router = useRouter();
 
@@ -23,23 +22,23 @@ const Avatar = () => {
     </span>
   );
 
-  const logout = () => {
-    logoutHandler(session.authorization, dispatch);
-    router.push(redirectTo(BASE_URI, "/"));
+  const handleLogout = () => {
+    LogoutService(token, logout);
+    router.push("/");
   };
 
   return (
     <div>
       <Dropdown trigger={trigger} pointing="top right" icon={null}>
         <Dropdown.Menu>
-          <Dropdown.Header content={`¡Hola, ${session.names}! `} />
+          <Dropdown.Header content={`¡Hola, ${currentUser.names}! `} />
 
           <Dropdown.Divider />
 
           <Dropdown.Item
             icon="user"
             text="Mi Perfil"
-            onClick={() => router.push(`${BASE_URI}/info`)}
+            onClick={() => router.push(BASE_URI)}
           />
           <Dropdown.Item
             icon="heart"
@@ -53,7 +52,7 @@ const Avatar = () => {
           <Dropdown.Item icon="conversation" text="FAQ's" />
           <Dropdown.Divider />
           <Dropdown.Item
-            onClick={logout}
+            onClick={handleLogout}
             icon={{ name: "sign out", color: "red" }}
             text="Cerrar Sesión"
           />

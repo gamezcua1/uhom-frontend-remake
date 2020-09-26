@@ -1,23 +1,26 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useContext } from "react";
 import { useRouter } from "next/router";
 import Loading from "../../components/shared/loading";
-import session from "../../components/user_profile/fakeSession";
 import ProfileHeader from "../../components/user_profile/ProfileHeader";
 import ProfilePanel from "../../components/user_profile/profile_panel/ProfilePanel";
+import { UserContext } from "../../lib/context/UserContext";
 
 const UserShow = () => {
   const router = useRouter();
+  const { currentUser } = useContext(UserContext);
   const { userId } = router.query;
-  const isAuthorized = () => session && session.id === userId;
+  const isAuthorized = () => currentUser && currentUser.uuid === userId;
 
   useEffect(() => {
     if (userId && !isAuthorized()) router.push("/");
   }, [userId]);
 
-  if (!userId) return <Loading />;
+  if (!userId || !currentUser) return <Loading />;
   return (
     <>
-      <ProfileHeader fullName={`${session.names} ${session.surnames}`} />
+      <ProfileHeader
+        fullName={`${currentUser.names} ${currentUser.surnames}`}
+      />
       <ProfilePanel />
     </>
   );

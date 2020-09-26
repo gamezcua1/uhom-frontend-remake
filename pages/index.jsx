@@ -1,19 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import Link from "next/link";
 import Hero from "../components/layout/Hero";
 import Banner from "../components/layout/Banner";
-// import { useSessionInfo } from "../../services/sessionInfo";
-// import { useUserContext } from "../../UserContext";
+import { UserContext } from "../lib/context/UserContext";
 
 const Home = () => {
-  const { isLogged } = { isLogged: false }; // useUserContext();
-
-  // const session = useSessionInfo();
-  const session = {};
+  const { currentUser, isLoggedIn } = useContext(UserContext);
 
   const subtitle = () =>
-    isLogged
-      ? `Bienvenido ${session.names}.`
+    isLoggedIn()
+      ? `Bienvenido ${currentUser.names}.`
       : "Registrate y visita la casa de tus sueños.";
 
   return (

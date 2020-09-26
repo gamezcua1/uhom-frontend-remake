@@ -1,17 +1,21 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useContext } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import UserForm from "../components/forms/UserForm";
-import { useCurrentUser } from "../lib/context/UserContext";
+import UserForm from "../components/users/UserForm";
+import { UserContext } from "../lib/context/UserContext";
 import FormLogoHeader from "../components/shared/FormLogoHeader";
 
 const signup = () => {
-  const { isLoggedIn } = useCurrentUser();
+  const { currentUser, isLoggedIn } = useContext(UserContext);
   const router = useRouter();
 
   useEffect(() => {
-    if(isLoggedIn()) router.push("/");
-  },[]);
+    if (isLoggedIn()) router.push("/");
+  }, [currentUser]);
+
+  const handleSignUp = (data) => {
+    console.log(data);
+  };
 
   return (
     <div className="dark-bg-solid">
@@ -20,6 +24,7 @@ const signup = () => {
         customClasses="dark"
         iconName="home"
         submitMessage="Registrarse"
+        submitionHandler={handleSignUp}
       />
 
       <p className="general-callout">

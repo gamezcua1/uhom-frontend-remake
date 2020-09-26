@@ -1,17 +1,17 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useContext } from "react";
 import LoginForm from "../components/login/LoginForm";
-import { useUserContext } from "../lib/context/UserContext";
 import FormLogoHeader from "../components/shared/FormLogoHeader";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import { UserContext } from "../lib/context/UserContext";
 
 function Login() {
   const router = useRouter();
-  const { isLogged } = useUserContext();
+  const { currentUser, isLoggedIn } = useContext(UserContext);
 
   useEffect(() => {
-    if (isLogged) router.push("/properties");
-  }, []);
+    if (isLoggedIn()) router.push("/properties");
+  }, [currentUser]);
 
   return (
     <div className="dark-bg-solid">

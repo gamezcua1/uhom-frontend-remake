@@ -1,17 +1,19 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useRouter } from "next/router";
-// import { useSessionInfo } from "../../services/sessionInfo";
 import PropertyDetail from "../../components/properties/PropertyDetail";
 import { usePropertyShow } from "../../lib/hooks/properties";
 import Error from "../../components/shared/error";
 import Loading from "../../components/shared/loading";
+import { UserContext } from "../../lib/context/UserContext";
 
 function PropertyShow() {
+  const { currentUser } = useContext(UserContext);
   const router = useRouter();
   const { propertyId } = router.query;
-  // const { id } = useSessionInfo() || {};
-  const id = 1;
-  const { response, property } = usePropertyShow({ propertyId, user_id: id });
+  const { response, property } = usePropertyShow({
+    propertyId,
+    user_id: currentUser.uuid,
+  });
 
   if (!response) return <Loading />;
   if (!property)

@@ -4,7 +4,7 @@ import { UserContext } from "../../../lib/context/UserContext";
 import panes from "./options/profilePanes";
 
 const ProfilePanel = () => {
-  const { currentUser, token } = useContext(UserContext)
+  const { currentUser, token } = useContext(UserContext);
 
   return (
     <Tab

@@ -8,8 +8,6 @@ const Avatar = () => {
   const { logout, token, currentUser } = useContext(UserContext);
   const BASE_URI = `/user/${currentUser.uuid}`;
 
-  console.log({ BASE_URI })
-
   const router = useRouter();
 
   const trigger = (

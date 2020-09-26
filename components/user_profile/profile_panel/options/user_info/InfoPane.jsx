@@ -9,7 +9,7 @@ import { cleanEmpties } from "../../../../../lib/hooks/dataFormater";
 import { UserContext } from "../../../../../lib/context/UserContext";
 
 const InfoPane = ({ userId, bearerToken }) => {
-  const { currentUser, token } = useContext(UserContext)
+  const { currentUser, token } = useContext(UserContext);
   const [responseErrors, setErrors] = useState({});
   const [isEditable, setEdition] = useState(false);
   const { user, error } = useUserInfo(userId, bearerToken);

@@ -5,6 +5,7 @@ import PropertiesList from "../../components/properties/PropertiesList";
 import { getTotalPages } from "../../lib/services/PaginationService";
 import Banner from "../../components/properties/PropertiesList";
 import { usePropertiesIndex } from "../../lib/hooks/properties";
+import Loading from "../../components/shared/loading";
 
 const PropertiesCatalog = () => {
   const noResultsMessage =
@@ -37,7 +38,8 @@ const PropertiesCatalog = () => {
     handleChange: handleChange,
   };
 
-  if (!properties || properties.length === 0)
+  if (!properties) return <Loading />;
+  if (properties.length === 0)
     return <Banner title="Ups!" subtitle={noResultsMessage} />;
   else
     return (

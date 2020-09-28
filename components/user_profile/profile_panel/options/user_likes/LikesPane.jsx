@@ -15,8 +15,6 @@ const LikesPane = () => {
     { page }
   );
 
-  console.log(properties);
-
   return (
     <Tab.Pane>
       <PropertiesCatalog

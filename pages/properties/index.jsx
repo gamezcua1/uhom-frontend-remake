@@ -1,51 +1,31 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useRouter } from "next/router";
 
-import PropertiesList from "../../components/properties/PropertiesList";
-import { getTotalPages } from "../../lib/services/PaginationService";
-import Banner from "../../components/properties/PropertiesList";
 import { usePropertiesIndex } from "../../lib/hooks/properties";
+import PropertiesCatalog from "../../components/properties/catalog/PropertiesCatalog";
 
-const PropertiesCatalog = () => {
-  const noResultsMessage =
+const PropertiesIndex = () => {
+  const noResultMessage =
     "No se encuentraron propiedades con las características especificadas.";
   const router = useRouter();
   const [page, setPage] = useState(router.query.page || 1);
-  const [totalPages, setTotalPages] = useState(1);
-  const { properties, itemsPerPage, totalItems } = usePropertiesIndex({
-    page,
-  });
+  const { properties, itemsPerPage, totalItems, response } = usePropertiesIndex(
+    {
+      page,
+    }
+  );
 
-  const updateTotalPages = () => {
-    const tmpTotal = getTotalPages(totalItems, itemsPerPage);
-    if (tmpTotal !== totalPages) setTotalPages(tmpTotal);
-  };
-
-  useEffect(() => {
-    updateTotalPages();
-  }, [totalItems, router.query]);
-
-  const handleChange = (_event, data) => {
-    const currentPage = data.activePage;
-    setPage(currentPage);
-    router.push(`/properties?page=${currentPage}`);
-  };
-
-  const paginationProps = {
-    totalPages: totalPages,
-    currentPage: page,
-    handleChange: handleChange,
-  };
-
-  if (!properties || properties.length === 0)
-    return <Banner title="Ups!" subtitle={noResultsMessage} />;
-  else
-    return (
-      <PropertiesList
-        properties={properties}
-        paginationProps={paginationProps}
-      />
-    );
+  return (
+    <PropertiesCatalog
+      currentPage={page}
+      itemsPerPage={itemsPerPage}
+      noResultMessage={noResultMessage}
+      properties={properties}
+      setCurrentPage={setPage}
+      totalItems={totalItems}
+      response={response}
+    />
+  );
 };
 
-export default PropertiesCatalog;
+export default PropertiesIndex;

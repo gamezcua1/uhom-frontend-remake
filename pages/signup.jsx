@@ -1,20 +1,33 @@
-import React, { useEffect, useContext } from "react";
+import React, { useEffect, useContext, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import UserForm from "../components/users/UserForm";
 import { UserContext } from "../lib/context/UserContext";
 import FormLogoHeader from "../components/shared/FormLogoHeader";
+import UsersController from "../controllers/UsersController";
+import { LoginService } from "../lib/services/session/AuthService";
 
 const signup = () => {
-  const { currentUser, isLoggedIn } = useContext(UserContext);
+  const { currentUser, isLoggedIn, login } = useContext(UserContext);
+  const [responseErrors, setErrors] = useState({});
   const router = useRouter();
 
   useEffect(() => {
     if (isLoggedIn()) router.push("/");
   }, [currentUser]);
 
-  const handleSignUp = (data) => {
-    console.log(data);
+  const handleSignUp = (user) => {
+    UsersController.create(user)
+      .then(async () => {
+        await LoginService(
+          {
+            email: user.email,
+            password: user.password,
+          },
+          login
+        );
+      })
+      .catch((err) => setErrors(err.response.data.details));
   };
 
   return (
@@ -25,6 +38,7 @@ const signup = () => {
         iconName="home"
         submitMessage="Registrarse"
         submitionHandler={handleSignUp}
+        responseErrors={responseErrors}
       />
 
       <p className="general-callout">

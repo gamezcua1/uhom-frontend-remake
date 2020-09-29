@@ -2,7 +2,7 @@ import React from "react";
 import axios from "axios";
 import { Card, Divider, Grid, Menu } from "semantic-ui-react";
 import Link from "next/link";
-// import LikeButton from "../Actions/LikeButton";
+import LikeButton from "./actions/LikeButton";
 
 export default function PropertyCard({ propertyInfo }) {
   const {
@@ -14,7 +14,7 @@ export default function PropertyCard({ propertyInfo }) {
     bathrooms,
     bedrooms,
     square_meters,
-    // likes_info: likesInfo,
+    likes_info: likesInfo,
   } = propertyInfo;
   const { city, state } = location;
 
@@ -36,7 +36,7 @@ export default function PropertyCard({ propertyInfo }) {
 
           <Card.Content>
             <Menu borderless className="simple">
-              {/* <LikeButton likesInfo={likesInfo} propertyId={uuid} /> */}
+              <LikeButton likesInfo={likesInfo} propertyId={uuid} />
             </Menu>
           </Card.Content>
 

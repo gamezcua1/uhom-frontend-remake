@@ -9,7 +9,7 @@ export default function LikeButton({ likesInfo, propertyId }) {
     total_likes: totalLikes,
     currently_liked: currentlyLiked,
   } = likesInfo;
-  const { currentUser, token } = useContext(UserContext);
+  const { currentUser } = useContext(UserContext);
   const [likesTotal, setTotal] = useState(totalLikes);
   const [isLiked, setLikeState] = useState(currentlyLiked);
   const [isOpen, setToggle] = useState(false);
@@ -18,10 +18,16 @@ export default function LikeButton({ likesInfo, propertyId }) {
 
   const handleLike = () => {
     if (currentUser) {
-      LikesController.post(token, propertyId, currentUser.uuid).then(() => {
-        updateTotalLikes();
-        setLikeState(!isLiked);
-      });
+      let likeResponse = isLiked
+        ? LikesController.delete(propertyId)
+        : LikesController.post(propertyId);
+
+      likeResponse
+        .then(() => {
+          updateTotalLikes();
+          setLikeState(!isLiked);
+        })
+        .catch((err) => console.log(err.response));
     } else openModal();
   };
 

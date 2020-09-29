@@ -2,16 +2,22 @@ import axios from "axios";
 import { setHeaders } from "../lib/helpers/requestFormatter";
 
 export default class LikesController {
-  static post(authorization, propertyId, userId) {
+  static post(propertyId) {
     return axios.post(
       `/properties/${propertyId}/like`,
-      setParams(propertyId, userId),
-      setHeaders(authorization)
+      setParams(propertyId),
+      setHeaders()
     );
+  }
+
+  static delete(propertyId) {
+    return axios.delete(`/properties/${propertyId}/like`, {
+      ...setParams(propertyId),
+      ...setHeaders(),
+    });
   }
 }
 
-const setParams = (propertyId, userId) => ({
-  user_id: userId,
+const setParams = (propertyId) => ({
   property_id: propertyId,
 });

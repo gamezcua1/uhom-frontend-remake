@@ -9,7 +9,7 @@ import { cleanEmpties } from "../../../../../lib/hooks/dataFormater";
 import { UserContext } from "../../../../../lib/context/UserContext";
 
 const InfoPane = ({ userId, bearerToken }) => {
-  const { currentUser, token } = useContext(UserContext);
+  const { currentUser } = useContext(UserContext);
   const [responseErrors, setErrors] = useState({});
   const [isEditable, setEdition] = useState(false);
   const { user, error } = useUserInfo(userId, bearerToken);
@@ -18,7 +18,7 @@ const InfoPane = ({ userId, bearerToken }) => {
 
   const updateUserInfo = (data) => {
     const cleanData = cleanEmpties(data);
-    UsersController.update(currentUser.id, cleanData, token)
+    UsersController.update(currentUser.uuid, cleanData)
       .then(() => {
         window.location.reload();
       })

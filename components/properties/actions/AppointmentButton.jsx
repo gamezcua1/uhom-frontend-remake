@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import SigninFirst from "../../modals/SignInFirst";
 import { Button } from "semantic-ui-react";
-import { useCurrentUser } from "../../../lib/context/UserContext";
+import { UserContext } from "../../../lib/context/UserContext";
 
 export default function AppopinmentButton({ address, price }) {
   const [modalOpen, handleModal] = useState(false);
-  const { isLoggedIn } = useCurrentUser();
+  const { isLoggedIn } = useContext(UserContext);
   const baseUri = "https://api.whatsapp.com/send?";
   const defaultPhone = "5213121042284";
 

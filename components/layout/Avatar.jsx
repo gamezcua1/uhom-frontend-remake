@@ -36,12 +36,12 @@ const Avatar = () => {
           <Dropdown.Item
             icon="user"
             text="Mi Perfil"
-            onClick={() => router.push(BASE_URI)}
+            onClick={() => router.push(`${BASE_URI}?tab=info`)}
           />
           <Dropdown.Item
             icon="heart"
             text="Mis Casas"
-            onClick={() => router.push(`${BASE_URI}/my-likes`)}
+            onClick={() => router.push(`${BASE_URI}?tab=my-likes`)}
           />
 
           <Dropdown.Divider />

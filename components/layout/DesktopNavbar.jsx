@@ -6,19 +6,21 @@ import NavbarRightItems from "./NavbarRightItems";
 
 const DesktopNavbar = () => {
   return (
-    <Menu borderless className="navbar">
-      <Container>
-        <Menu.Item position="left">
-          <Link href="/">
-            <a>
-              <Image src="/images/logos/YellowLogo.png" size="mini" />
-            </a>
-          </Link>
-        </Menu.Item>
-        <NavbarItems />
-        <NavbarRightItems />
-      </Container>
-    </Menu>
+    <div className="navbar-desktop">
+      <Menu borderless className="navbar">
+        <Container>
+          <Menu.Item position="left">
+            <Link href="/">
+              <a>
+                <Image src="/images/logos/YellowLogo.png" size="mini" />
+              </a>
+            </Link>
+          </Menu.Item>
+          <NavbarItems />
+          <NavbarRightItems />
+        </Container>
+      </Menu>
+    </div>
   );
 };
 

@@ -6,8 +6,10 @@ import { UserContextProvider } from "../lib/context/UserContext";
 const MainLayout = ({ children }) => (
   <UserContextProvider>
     <DesktopNavbar />
-    {children}
-    <Footer />
+    <div className="body-container">
+      <div className="content">{children}</div>
+      <Footer />
+    </div>
   </UserContextProvider>
 );
 

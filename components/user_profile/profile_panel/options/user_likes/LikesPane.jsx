@@ -1,15 +1,16 @@
-import React, { useState } from "react";
+import React from "react";
 import { useRouter } from "next/router";
 import { Tab } from "semantic-ui-react";
 
 import PropertiesCatalog from "../../../../properties/catalog/PropertiesCatalog";
 import { useUserLikes } from "../../../../../lib/hooks/users";
+import { useCurrentPage } from "../../../../../lib/hooks/pagination";
 
 const LikesPane = () => {
   const noResultMessage =
     "Aún no has dado 'like' a ninguna propiedad. Aquí aparecerán todas las propiedades que te gustan";
   const router = useRouter();
-  const [page, setPage] = useState(router.query.page || 1);
+  const [page, setPage] = useCurrentPage(router.query.page);
   const { properties, itemsPerPage, totalItems, response } = useUserLikes(
     router.query.userId,
     { page }

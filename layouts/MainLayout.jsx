@@ -1,12 +1,12 @@
 import React from "react";
-import DesktopNavbar from "../components/layout/DesktopNavbar";
 import Footer from "../components/layout/Footer";
+import Navbar from "../components/layout/Navbar";
 import { UserContextProvider } from "../lib/context/UserContext";
 
 const MainLayout = ({ children }) => (
   <UserContextProvider>
-    <DesktopNavbar />
-    <div className="body-container">
+    <Navbar />
+    <div id="base" className="body-container">
       <div className="content">{children}</div>
       <Footer />
     </div>

@@ -2,7 +2,7 @@
 .ui.segment.navbar,
 .ui.left.sidebar {
   font-size: 1.1rem;
-  background: var(--offWhite);
+  background: var(--offWhite) !important;
   border-radius: 0;
   margin: 0;
 }

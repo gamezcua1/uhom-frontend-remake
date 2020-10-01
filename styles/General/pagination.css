@@ -1,5 +1,6 @@
 .ui.secondary.pointing.menu .item {
   color: var(--darkGrey);
+  outline: none;
 }
 
 .ui.secondary.pointing.menu .active.item {

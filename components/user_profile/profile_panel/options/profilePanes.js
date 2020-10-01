@@ -7,7 +7,7 @@ const panes = (userId, userToken) => [
   {
     menuItem: { key: "my-likes", content: "Mis Casas" },
     // eslint-disable-next-line react/display-name
-    render: () => <LikesPane />,
+    render: () => <LikesPane userId={userId} />,
   },
   {
     menuItem: { key: "info", content: "Información" },

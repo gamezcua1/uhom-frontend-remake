@@ -6,7 +6,12 @@ export default function Footer() {
     "https://www.facebook.com/venta.de.casas.infonavit.fovissste";
 
   return (
-    <Segment inverted vertical attached="bottom" style={{ padding: "1em" }}>
+    <Segment
+      inverted
+      vertical
+      attached="bottom"
+      style={{ marginBottom: 0, padding: "1em" }}
+    >
       <Container textAlign="center">
         <Image centered size="mini" src="/images/logos/YellowLogo.png" />
         <Grid stackable>

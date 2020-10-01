@@ -27,7 +27,7 @@ const PropertiesCatalog = ({
 
   const handlePageChange = (_event, data) => {
     const { activePage } = data;
-    setCurrentPage(activePage);
+    setCurrentPage({ page: activePage });
   };
 
   const paginationProps = {

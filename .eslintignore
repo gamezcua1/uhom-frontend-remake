@@ -1,3 +1,8 @@
 node_modules
+<<<<<<< HEAD
 public
 .next
+=======
+.next
+cypress
+>>>>>>> c02d0e7... Ignore import dependencies error in cypress folder

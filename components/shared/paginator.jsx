@@ -8,9 +8,10 @@ export default function Paginator(props) {
 
   return (
     <>
-      {enableComponent() ? (
+      {enableComponent() && (
         <Grid.Row centered>
           <Pagination
+            id="paginator"
             ellipsisItem={{
               content: <Icon name="ellipsis horizontal" />,
               icon: true,
@@ -26,7 +27,7 @@ export default function Paginator(props) {
             onPageChange={(event, data) => handleChange(event, data)}
           />
         </Grid.Row>
-      ) : null}
+      )}
     </>
   );
 }

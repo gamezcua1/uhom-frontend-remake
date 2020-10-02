@@ -9,11 +9,13 @@ Cypress.Commands.add("loadProperties", (loadHeaders = false) => {
 });
 
 Cypress.Commands.add("loginAsUser", () => {
-  cy.visit("/login");
+  cy.get("button.btn-login").contains("Iniciar sesión").click();
 
-  cy.get("#email").type("johndoe@gmail.com");
-  cy.get("#password").type("Thisisavalidpassw0rd");
-  cy.get(".fluid > button").click();
+  cy.fixture("users/user.json").then((user) => {
+    cy.get("#email").type(user.email);
+    cy.get("#password").type(user.password);
+    cy.get(".fluid > button").click();
+  });
 });
 
 const getHeaders = () => ({

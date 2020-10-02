@@ -8,7 +8,13 @@ Cypress.Commands.add("loadProperties", (loadHeaders = false) => {
   });
 });
 
-Cypress.Commands.add("login", () => {});
+Cypress.Commands.add("loginAsUser", () => {
+  cy.visit("/login");
+
+  cy.get("#email").type("johndoe@gmail.com");
+  cy.get("#password").type("Thisisavalidpassw0rd");
+  cy.get(".fluid > button").click();
+});
 
 const getHeaders = () => ({
   total: 25,

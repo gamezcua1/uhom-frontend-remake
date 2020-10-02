@@ -41,6 +41,7 @@ const UserForm = ({
   return (
     <>
       <Form
+        id="userForm"
         className={`large ${customClasses || ""}`}
         onSubmit={handleSubmit(submitionHandler)}
       >

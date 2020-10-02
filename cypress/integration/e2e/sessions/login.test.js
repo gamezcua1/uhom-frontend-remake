@@ -22,7 +22,7 @@ describe("Login", () => {
     });
 
     it("Should mark error when credentials are incorrect", () => {
-      cy.invalidLogin({ password: "Invalidpassw0rd" });
+      cy.invalidLogin();
       cy.get("p.dark-error").should(
         "have.html",
         "La combinación de email y contraseña es incorrecta"
@@ -32,6 +32,10 @@ describe("Login", () => {
     it("Should be a successful login", () => {
       cy.loginAsUser();
       cy.get("span#avatar").should("be.visible");
+
+      cy.getCookies()
+        .should("have.length", 1)
+        .then((cookie) => expect(cookie[0]).to.have.property("name", "uid"));
     });
   });
 });

@@ -5,8 +5,7 @@ describe("End-2-end tests for properties index", () => {
     });
 
     it("Should access through navbar", () => {
-      cy.get("a.item").contains("Propiedades").click();
-      cy.loadProperties();
+      cy.visitProperties();
 
       cy.location().should((location) =>
         expect(location.pathname).to.eql("/properties")

@@ -10,14 +10,14 @@
 .ui.menu.navbar .item,
 .ui.segment.navbar .item,
 .ui.left.sidebar .item {
-  color: var(--mainWhite);
+  color: var(--mainWhite) !important;
   font-weight: 500;
 }
 
 .ui.menu.navbar .item:hover,
 .ui.segment.navbar .item:hover,
 .ui.left.sidebar .item:hover {
-  color: var(--primaryColor);
+  color: var(--primaryColor) !important;
 }
 
 .ui.segment.navbar {

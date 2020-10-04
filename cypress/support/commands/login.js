@@ -3,6 +3,7 @@ Cypress.Commands.add("visitLogin", () => {
 });
 
 Cypress.Commands.add("loginAsUser", (validLogin = true) => {
+  cy.visitLogin();
   cy.fixture("users/user.json").then((user) => {
     validLogin ? cy.mockLogin() : cy.mockInvalidLogin();
     cy.get("#email").type(user.email);

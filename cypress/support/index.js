@@ -18,6 +18,7 @@ import "./commands/login";
 import "./commands/properties";
 import "./commands/mocks/properties";
 import "./commands/mocks/sessions";
+import "./commands/mocks/likes";
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')

@@ -12,4 +12,10 @@ Cypress.Commands.add("loginAsUser", (validLogin = true) => {
   });
 });
 
+Cypress.Commands.add("logoutAsUser", () => {
+  cy.get("span#avatar").click();
+  cy.get(".logout").click();
+  cy.mockLogout();
+});
+
 Cypress.Commands.add("invalidLogin", () => cy.loginAsUser(false));

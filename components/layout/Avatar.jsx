@@ -48,6 +48,7 @@ const Avatar = () => {
           <Dropdown.Item icon="conversation" text="FAQ's" />
           <Dropdown.Divider />
           <Dropdown.Item
+            className="logout"
             onClick={handleLogout}
             icon={{ name: "sign out", color: "red" }}
             text="Cerrar Sesión"

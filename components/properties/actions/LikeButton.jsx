@@ -41,6 +41,7 @@ export default function LikeButton({ likesInfo, propertyId }) {
       </div>
       <Menu.Item position="right">
         <Button
+          className="likeButton"
           color="red"
           icon="heart"
           basic={!isLiked}

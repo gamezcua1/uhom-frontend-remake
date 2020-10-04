@@ -13,7 +13,7 @@ describe("End-2-end tests for properties show", () => {
   it("Cannot ask for a tour if user is not logged in", () => {
     cy.get(".extra.center.aligned.content > a").first().click();
     cy.loadSingleProperty();
-    cy.get(".fluid > button").click();
+    cy.get("#appoinmentButton").click();
     cy.get("body").contains("¡Ups! Parece que aún no te has registrado");
   });
 
@@ -23,7 +23,7 @@ describe("End-2-end tests for properties show", () => {
 
     cy.get(".extra.center.aligned.content > a").first().click();
     cy.loadSingleProperty();
-    cy.get(".fluid > button").click();
+    cy.get("#appoinmentButton").click();
     cy.get("body")
       .contains("¡Ups! Parece que aún no te has registrado")
       .should("not.exist");

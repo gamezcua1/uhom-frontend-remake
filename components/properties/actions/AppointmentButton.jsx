@@ -32,7 +32,7 @@ export default function AppopinmentButton({ address, price }) {
       </div>
       <div className="fluid">
         <Button className="btn-signin" onClick={() => handleAppoinment()}>
-          ¡Haz una cita, visita la casa!
+          ¡Conoce la casa!
         </Button>
       </div>
     </div>

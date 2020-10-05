@@ -3,6 +3,7 @@
 # preferences
 .vscode
 cypress/*/examples
+public/*.js
 
 # dependencies
 /node_modules

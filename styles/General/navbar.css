@@ -24,3 +24,12 @@
   padding: 0.1em;
   width: 100%;
 }
+
+.navbar-mobile > .ui > .column > .segment {
+  padding: 0;
+  border: none;
+}
+
+.ui.sidebar.menu {
+  box-shadow: 0px 0 20px 0px black !important;
+}

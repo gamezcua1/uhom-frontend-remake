@@ -1,12 +1,19 @@
 import React from "react";
 import { Container, Grid, Icon, Image, List, Segment } from "semantic-ui-react";
 
+const segmentStyle = {
+  marginBottom: 0,
+  padding: "1em",
+  borderRadius: 0,
+  border: "none",
+};
+
 export default function Footer() {
   const FACEBOOK_URI =
     "https://www.facebook.com/venta.de.casas.infonavit.fovissste";
 
   return (
-    <Segment inverted vertical attached="bottom" style={{ padding: "1em" }}>
+    <Segment inverted vertical attached="bottom" style={segmentStyle}>
       <Container textAlign="center">
         <Image centered size="mini" src="/images/logos/YellowLogo.png" />
         <Grid stackable>

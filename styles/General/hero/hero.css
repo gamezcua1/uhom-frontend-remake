@@ -2,10 +2,10 @@
 .defaultHero,
 .housesHero {
   min-height: 100vh;
-  background: url("/images/landing-background.jpg") center/cover no-repeat;
+  background: url("/images/landing-background.webp") center/cover no-repeat;
 }
 .housesHero {
-  background-image: url("/images/error-background.jpg");
+  background-image: url("/images/error-background.webp");
 }
 
 /* End of Hero */

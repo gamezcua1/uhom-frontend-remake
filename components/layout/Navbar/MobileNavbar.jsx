@@ -29,7 +29,7 @@ export default function MobileNavbar() {
           visible={isOpen}
         >
           <Segment basic>
-            <Image src={"/images/logos/NamedYellowLogo.png"} size="tiny" />
+            <Image src={"/images/logos/NamedYellowLogo.webp"} size="tiny" />
           </Segment>
           <Divider />
           <NavbarItems isMobile={true} handleSideBar={handleSidebar} />

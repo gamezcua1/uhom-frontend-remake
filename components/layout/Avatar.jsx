@@ -25,13 +25,19 @@ const Avatar = () => {
 
   return (
     <div>
-      <Dropdown trigger={trigger} pointing="top right" icon={null}>
-        <Dropdown.Menu>
+      <Dropdown
+        id="loggedUserAvatar"
+        trigger={trigger}
+        pointing="top right"
+        icon={null}
+      >
+        <Dropdown.Menu id="loggedUserMenu">
           <Dropdown.Header content={`¡Hola, ${currentUser.names}! `} />
 
           <Dropdown.Divider />
 
           <Dropdown.Item
+            id="userProfile"
             icon="user"
             text="Mi Perfil"
             onClick={() => router.push(`${BASE_URI}?tab=info`)}

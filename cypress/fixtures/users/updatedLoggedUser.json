@@ -1,0 +1,22 @@
+{
+  "uuid": "a54a48d7-1503-440d-a855-f190dceefd60",
+  "avatar": {
+    "name": "avatar",
+    "record": {
+      "id": 12,
+      "uuid": "a54a48d7-1503-440d-a855-f190dceefd60",
+      "names": "Juanito",
+      "surnames": "Perez",
+      "email": "johndoe@gmail.com",
+      "phone_number": "312-123-4567",
+      "role": "user",
+      "created_at": "2020-07-22T01:46:19.337Z",
+      "updated_at": "2020-09-29T16:21:10.125Z"
+    }
+  },
+  "names": "Juanito",
+  "surnames": "Perez",
+  "email": "johndoe@gmail.com",
+  "phone_number": "312-123-4567",
+  "role": "user"
+}

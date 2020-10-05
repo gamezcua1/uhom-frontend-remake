@@ -12,7 +12,7 @@ const DesktopNavbar = () => {
           <Menu.Item position="left">
             <Link href="/">
               <a>
-                <Image src="/images/logos/YellowLogo.png" size="mini" />
+                <Image src="/images/logos/YellowLogo.webp" size="mini" />
               </a>
             </Link>
           </Menu.Item>

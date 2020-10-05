@@ -15,7 +15,7 @@ export default function Footer() {
   return (
     <Segment inverted vertical attached="bottom" style={segmentStyle}>
       <Container textAlign="center">
-        <Image centered size="mini" src="/images/logos/YellowLogo.png" />
+        <Image centered size="mini" src="/images/logos/YellowLogo.webp" />
         <Grid stackable>
           <Grid.Column width={8}>
             <List horizontal>

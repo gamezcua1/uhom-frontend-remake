@@ -54,6 +54,7 @@ const UserForm = ({
           <label htmlFor="names"> Nombre(s): </label>
           <div className="ui input">
             <input
+              id="names"
               name="names"
               placeholder="Nombre(s)"
               ref={register}
@@ -67,6 +68,7 @@ const UserForm = ({
           <label htmlFor="surnames"> Apellido(s): </label>
           <div className="ui input">
             <input
+              id="surnames"
               name="surnames"
               placeholder="Apellido(s)"
               ref={register}
@@ -83,6 +85,7 @@ const UserForm = ({
             <label htmlFor="email"> Email: </label>
             <div className="ui input">
               <input
+                id="email"
                 name="email"
                 type="email"
                 placeholder="Email"
@@ -112,6 +115,7 @@ const UserForm = ({
                 defaultValue={setValue("phone_number")}
                 name="phone_number"
                 control={control}
+                id="phone_number"
               />
             </div>
             {errors.phone_number && (
@@ -125,6 +129,7 @@ const UserForm = ({
             <label htmlFor="password"> Contraseña: </label>
             <div className="ui input">
               <input
+                id="password"
                 name="password"
                 type="password"
                 placeholder="Contraseña"
@@ -140,6 +145,7 @@ const UserForm = ({
             <label htmlFor="password_confirmation">Confirmar contraseña:</label>
             <div className="ui input">
               <input
+                id="password_confirmation"
                 name="password_confirmation"
                 type="password"
                 placeholder="Confirmar contraseña"

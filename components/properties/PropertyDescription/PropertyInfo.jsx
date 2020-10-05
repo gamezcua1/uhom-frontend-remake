@@ -15,7 +15,9 @@ export default function PropertyInfo({ propertyInfo, propertyLocation }) {
     extra_description,
     likes_info,
     price,
-    square_meters,
+    construction_area,
+    front_meters,
+    deep_meters,
   } = propertyInfo;
 
   const { city, state } = propertyLocation;
@@ -32,7 +34,15 @@ export default function PropertyInfo({ propertyInfo, propertyLocation }) {
           <LikeButton likesInfo={likes_info} propertyId={uuid} />
         </Menu>
 
-        <MainFeatures features={{ bedrooms, bathrooms, square_meters }} />
+        <MainFeatures
+          features={{
+            bedrooms,
+            bathrooms,
+            construction_area,
+            front_meters,
+            deep_meters,
+          }}
+        />
 
         <ExtraDescription extraDescription={extra_description} />
 

@@ -1,8 +1,14 @@
 import React from "react";
 import { Header, Segment, Table } from "semantic-ui-react";
 
-const MainFeatures = (props) => {
-  const { bedrooms, bathrooms, square_meters } = props.features;
+const MainFeatures = ({ features }) => {
+  const {
+    bedrooms,
+    bathrooms,
+    construction_area,
+    front_meters,
+    deep_meters,
+  } = features;
 
   return (
     <Segment padded>
@@ -14,11 +20,25 @@ const MainFeatures = (props) => {
         <Table.Body>
           <Table.Row textAlign="left">
             <Table.Cell>
-              <Header as="h4">Superficie de construcción:</Header>
+              <Header as="h4">Superficie construida:</Header>
             </Table.Cell>
             <Table.Cell>
-              {square_meters} mts<sup>2</sup>
+              {construction_area} mts<sup>2</sup>
             </Table.Cell>
+          </Table.Row>
+
+          <Table.Row textAlign="left">
+            <Table.Cell>
+              <Header as="h4">Metros de frente:</Header>
+            </Table.Cell>
+            <Table.Cell>{front_meters} mts</Table.Cell>
+          </Table.Row>
+
+          <Table.Row textAlign="left">
+            <Table.Cell>
+              <Header as="h4">Metros de fondo:</Header>
+            </Table.Cell>
+            <Table.Cell>{deep_meters} mts</Table.Cell>
           </Table.Row>
 
           <Table.Row textAlign="left">

@@ -15,7 +15,7 @@ const locations = [
   "Villa",
 ].map((e, i) => ({ key: `location_${i}`, value: i, text: e }));
 
-const square_meters = [0, 100, 200, 300].map((e) => ({
+const construction_area = [0, 100, 200, 300].map((e) => ({
   key: `square_${e}`,
   value: e,
   text: e === 0 ? "Todos" : e,
@@ -137,7 +137,7 @@ const FilterInputs = ({ onChange, handleFilter, filters }) => (
         placeholder="Superficie mínima"
         search
         selection
-        options={square_meters}
+        options={construction_area}
         onChange={(_e, { value }) => onChange({ value, name: "greater_than" })}
         {...(filters.greater_than && {
           defaultValue: parseInt(filters.greater_than),
@@ -153,7 +153,7 @@ const FilterInputs = ({ onChange, handleFilter, filters }) => (
         placeholder="Superficie máxima"
         search
         selection
-        options={square_meters}
+        options={construction_area}
         onChange={(_e, { value }) => onChange({ value, name: "less_than" })}
         {...(filters.less_than && {
           defaultValue: parseInt(filters.less_than),

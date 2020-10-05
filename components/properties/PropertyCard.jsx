@@ -13,7 +13,7 @@ export default function PropertyCard({ propertyInfo }) {
     location,
     bathrooms,
     bedrooms,
-    square_meters,
+    construction_area,
     likes_info: likesInfo,
   } = propertyInfo;
   const { city, state } = location;
@@ -42,7 +42,7 @@ export default function PropertyCard({ propertyInfo }) {
 
           <Card.Meta>
             <span>
-              | {square_meters} mts<sup>2</sup> | {bedrooms} Recámara(s) |{" "}
+              | {construction_area} mts<sup>2</sup> | {bedrooms} Recámara(s) |{" "}
               {bathrooms} Baño(s) |
             </span>
           </Card.Meta>

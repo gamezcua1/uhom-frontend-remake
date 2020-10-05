@@ -10,7 +10,7 @@ const Home = () => {
   const subtitle = () =>
     isLoggedIn()
       ? `Bienvenido ${currentUser.names}.`
-      : "Registrate y visita la casa de tus sueños.";
+      : "Registrate, es tiempo de ir a casa.";
 
   return (
     <Hero>

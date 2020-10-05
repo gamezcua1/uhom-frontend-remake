@@ -37,21 +37,19 @@ export default function MobileNavbar() {
       </Portal>
       <Grid columns={1}>
         <Grid.Column>
-          <Sidebar.Pushable as={Segment}>
-            <Sidebar.Pusher dimmed={isOpen}>
-              <Segment basic textAlign="center" className="navbar">
-                <Container>
-                  <Menu pointing size="large" text>
-                    <Menu.Item onClick={handleSidebar}>
-                      <Icon name="sidebar" />
-                    </Menu.Item>
+          <Segment>
+            <Segment basic textAlign="center" className="navbar">
+              <Container>
+                <Menu pointing size="large" text>
+                  <Menu.Item onClick={handleSidebar}>
+                    <Icon name="sidebar" />
+                  </Menu.Item>
 
-                    <NavbarRightItems />
-                  </Menu>
-                </Container>
-              </Segment>
-            </Sidebar.Pusher>
-          </Sidebar.Pushable>
+                  <NavbarRightItems />
+                </Menu>
+              </Container>
+            </Segment>
+          </Segment>
         </Grid.Column>
       </Grid>
     </div>

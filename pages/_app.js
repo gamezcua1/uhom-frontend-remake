@@ -21,6 +21,10 @@ function MyApp({ Component, pageProps }) {
           name="viewport"
           content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"
         />
+        <meta
+          name="description"
+          content="Brindamos acompañamiento y asesoría profesional para que tomes la MEJOR DECISIÓN y vivas la emoción de adquirir la CASA de tus SUEÑOS."
+        />
         <link rel="icon" href="/favicon.ico" />
         <link rel="manifest" href="/manifest.json" />
         <link rel="apple-touch-icon" href="/apple-icon.png" />

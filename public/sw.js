@@ -51,11 +51,11 @@ define("./sw.js", ["./workbox-c2b5e142"], function (e) {
     e.precacheAndRoute(
       [
         {
-          url: "/_next/static/7VaLMI9sUyED06R47jFHt/_buildManifest.js",
+          url: "/_next/static/F2FqgjTLqQzWk5EYOgfsl/_buildManifest.js",
           revision: "a0251d77f3ea555167053d352f4504d5",
         },
         {
-          url: "/_next/static/7VaLMI9sUyED06R47jFHt/_ssgManifest.js",
+          url: "/_next/static/F2FqgjTLqQzWk5EYOgfsl/_ssgManifest.js",
           revision: "abee47769bf307639ace4945f9cfd4ff",
         },
         {
@@ -124,8 +124,8 @@ define("./sw.js", ["./workbox-c2b5e142"], function (e) {
           revision: "b060cc3363f179cefc0e3885586fb5a9",
         },
         {
-          url: "/_next/static/chunks/pages/_app-02e27a40be6e1c0a1314.js",
-          revision: "fdfd37a395183b4f96ced5acbb81b06c",
+          url: "/_next/static/chunks/pages/_app-ef4499e3e2dbe7ed5e87.js",
+          revision: "c899af57e9c5c02f1cb891ef670b2604",
         },
         {
           url: "/_next/static/chunks/pages/_error-818540eb3cae2ce7cbd5.js",
@@ -277,40 +277,20 @@ define("./sw.js", ["./workbox-c2b5e142"], function (e) {
         },
         { url: "/favicon.ico", revision: "2ffb42f49d4083996e46a1fd78b71336" },
         {
-          url: "/images/error-background.jpg",
-          revision: "5dd9cc7a49c451166da295cca49496c6",
-        },
-        {
           url: "/images/error-background.webp",
           revision: "76dcbddf7b75fec53ed9adbc1a458f27",
-        },
-        {
-          url: "/images/landing-background.jpg",
-          revision: "0fa49ee53f70473cf436ea374de18c3c",
         },
         {
           url: "/images/landing-background.webp",
           revision: "01e6ee84e67c8b1eaf4e0882958c86e1",
         },
         {
-          url: "/images/logos/FullYellowLogo.png",
-          revision: "dcd73fb5d467014631f8e678dc5aa106",
-        },
-        {
           url: "/images/logos/FullYellowLogo.webp",
           revision: "413d99f9f89bc1b545e596ed4535c6dc",
         },
         {
-          url: "/images/logos/NamedYellowLogo.png",
-          revision: "a5781835bc3659cd92f6a074c88f4aef",
-        },
-        {
           url: "/images/logos/NamedYellowLogo.webp",
           revision: "a0bfc76faa04f6cec9f91eddda2ec528",
-        },
-        {
-          url: "/images/logos/YellowLogo.png",
-          revision: "fa562863245d29870d29b73eb96fd0f8",
         },
         {
           url: "/images/logos/YellowLogo.webp",

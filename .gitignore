@@ -4,6 +4,7 @@
 .vscode
 cypress/*/examples
 public/*.js
+public/*.js.map
 
 # dependencies
 /node_modules

@@ -1,8 +1,10 @@
 import React, { useContext } from "react";
+import axios from "axios";
 import { Dropdown, Image } from "semantic-ui-react";
 import { LogoutService } from "../../lib/services/session/AuthService";
 import { UserContext } from "../../lib/context/UserContext";
 import { useRouter } from "next/router";
+import { defaults } from "../../lib/defaults";
 
 const Avatar = () => {
   const { logout, token, currentUser } = useContext(UserContext);
@@ -14,7 +16,9 @@ const Avatar = () => {
     <span>
       <Image
         avatar
-        src="https://en.gravatar.com/userimage/191265949/d6b5b62c51acb05d460a4b6f39610410.png?size=100"
+        src={
+          `${axios.defaults.baseURL}${currentUser.avatar}` || defaults.avatar
+        }
         size="mini"
       />
     </span>

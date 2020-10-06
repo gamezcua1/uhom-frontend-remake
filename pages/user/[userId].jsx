@@ -1,4 +1,5 @@
 import React, { useEffect, useContext } from "react";
+import axios from "axios";
 import { useRouter } from "next/router";
 import Loading from "../../components/shared/loading";
 import ProfileHeader from "../../components/user_profile/ProfileHeader";
@@ -20,6 +21,7 @@ const UserShow = () => {
     <>
       <ProfileHeader
         fullName={`${currentUser.names} ${currentUser.surnames}`}
+        avatar={`${axios.defaults.baseURL}${currentUser.avatar}`}
       />
       <ProfilePanel />
     </>

@@ -1,26 +1,20 @@
 import React, { useContext } from "react";
-import axios from "axios";
 import { Dropdown, Image } from "semantic-ui-react";
 import { LogoutService } from "../../lib/services/session/AuthService";
 import { UserContext } from "../../lib/context/UserContext";
 import { useRouter } from "next/router";
-import { defaults } from "../../lib/defaults";
+import { useUserAvatar } from "../../lib/hooks/users";
 
 const Avatar = () => {
   const { logout, token, currentUser } = useContext(UserContext);
   const BASE_URI = `/user/${currentUser.uuid}`;
+  const avatar = useUserAvatar(currentUser);
 
   const router = useRouter();
 
   const trigger = (
     <span>
-      <Image
-        avatar
-        src={
-          `${axios.defaults.baseURL}${currentUser.avatar}` || defaults.avatar
-        }
-        size="mini"
-      />
+      <Image avatar src={avatar} size="mini" />
     </span>
   );
 

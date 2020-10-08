@@ -6,6 +6,7 @@ import { UserContext } from "../lib/context/UserContext";
 import FormLogoHeader from "../components/shared/FormLogoHeader";
 import UsersController from "../controllers/UsersController";
 import { LoginService } from "../lib/services/session/AuthService";
+import { cleanEmpties } from "../lib/hooks/dataFormater";
 
 const signup = () => {
   const { currentUser, isLoggedIn, login } = useContext(UserContext);
@@ -17,7 +18,8 @@ const signup = () => {
   }, [currentUser]);
 
   const handleSignUp = (user) => {
-    UsersController.create(user)
+    const cleanUserData = cleanEmpties(user);
+    UsersController.create(cleanUserData)
       .then(async () => {
         await LoginService(
           {

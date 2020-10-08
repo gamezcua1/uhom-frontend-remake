@@ -44,6 +44,11 @@ const UserForm = ({
         className={`large ${customClasses || ""}`}
         onSubmit={handleSubmit(submitionHandler)}
       >
+        <Form.Field>
+          <label htmlFor="avatar">Avatar:</label>
+          <input type="file" name="avatar" accept="image/*" ref={register} />
+        </Form.Field>
+
         <Form.Field required={required}>
           <label htmlFor="names"> Nombre(s): </label>
           <div className="ui input">

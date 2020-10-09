@@ -19,7 +19,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint --fix . --ignore-path ./.gitignore && prettier --check './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc",
-    "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc"
+    "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc",
+    "test": "yarn cypress run"
   },
   "dependencies": {
     "@hookform/resolvers": "^0.1.1",

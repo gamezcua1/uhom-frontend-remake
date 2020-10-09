@@ -14,7 +14,6 @@ describe("End-2-end tests for properties index", () => {
 
     it("Should access through the banner's button", () => {
       cy.get("a.btn-primary").contains("Nuestras casas").click();
-      cy.loadProperties();
 
       cy.location().should((location) =>
         expect(location.pathname).to.eql("/properties")

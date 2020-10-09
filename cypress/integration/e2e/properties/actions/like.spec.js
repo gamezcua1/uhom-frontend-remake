@@ -16,7 +16,6 @@ describe("End-2-end test cases for Like button", () => {
   it("Should be able to like property when user is logged in", () => {
     cy.loginAsUser();
     cy.visitSingleProperty().then(() => {
-      cy.mockLikeRequest();
       cy.get("button.likeButton").click();
     });
   });

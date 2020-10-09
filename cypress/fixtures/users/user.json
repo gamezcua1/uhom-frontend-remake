@@ -1,8 +1,0 @@
-{
-  "names": "John",
-  "surnames": "Doe",
-  "email": "johndoe@gmail.com",
-  "phone_number": "312-123-4567",
-  "password": "Thisisavalidpassw0rd",
-  "password_confirmation": "Thisisavalidpassw0rd"
-}

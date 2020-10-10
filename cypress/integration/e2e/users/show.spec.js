@@ -1,10 +1,14 @@
-describe("End-2-end tests for users show", () => {
+describe("End-2-end tests for users show", function () {
   beforeEach(() => {
     cy.visit("/");
+
+    cy.fixture("users.json").then(function ({ client }) {
+      this.user = client;
+    });
   });
 
-  it("User can see its profile", () => {
-    cy.loginAsUser();
+  it("User can see its profile", function () {
+    cy.login(this.user);
 
     cy.get("#loggedUserAvatar").click();
     const menu = cy.get("#userProfile");
@@ -14,8 +18,8 @@ describe("End-2-end tests for users show", () => {
     cy.get(".body-container").should("not.contain", "Error");
   });
 
-  it("User can see its profile", () => {
-    cy.loginAsUser();
+  it("User can see its profile", function () {
+    cy.login(this.user);
     cy.get("#loggedUserAvatar").click();
     cy.get("#userProfile").click();
 

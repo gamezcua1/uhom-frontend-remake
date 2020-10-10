@@ -21,16 +21,19 @@ describe("Login", () => {
       errors.should("have.html", "⚠ Este campo es obligatorio");
     });
 
-    it("Should mark error when credentials are incorrect", () => {
-      cy.invalidLogin();
+    it("Should mark error when credentials are incorrect", async () => {
+      const { client } = await cy.fixture("users.json");
+      cy.login({ ...client, password: "anotherPassword" });
+
       cy.get("p.dark-error").should(
         "have.html",
         "La combinación de email y contraseña es incorrecta"
       );
     });
 
-    it("Should be a successful login", () => {
-      cy.loginAsUser();
+    it("Should be a successful login", async () => {
+      const { client } = await cy.fixture("users.json");
+      cy.login(client);
       cy.get("span#avatar").should("be.visible");
 
       cy.getCookies()

@@ -5,4 +5,5 @@ Cypress.Commands.add("visitProperties", () => {
 Cypress.Commands.add("visitSingleProperty", () => {
   cy.visitProperties();
   cy.get(".extra.center.aligned.content > a").first().click();
+  cy.wait(2000);
 });

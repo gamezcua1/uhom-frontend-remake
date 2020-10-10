@@ -31,7 +31,11 @@ export default function AppopinmentButton({ address, price }) {
         <SigninFirst isOpen={modalOpen} handleModal={setModal} />
       </div>
       <div className="fluid">
-        <Button className="btn-signin" onClick={() => handleAppoinment()}>
+        <Button
+          id="appoinmentButton"
+          className="btn-signin"
+          onClick={() => handleAppoinment()}
+        >
           ¡Conoce la casa!
         </Button>
       </div>

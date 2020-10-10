@@ -15,7 +15,7 @@
     ]
   },
   "scripts": {
-    "dev": "next -p 3001",
+    "dev": "next",
     "build": "next build",
     "start": "next start",
     "lint": "eslint --fix . --ignore-path ./.gitignore && prettier --check './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc",

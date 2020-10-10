@@ -15,11 +15,12 @@
     ]
   },
   "scripts": {
-    "dev": "next -p 3001",
+    "dev": "next",
     "build": "next build",
     "start": "next start",
     "lint": "eslint --fix . --ignore-path ./.gitignore && prettier --check './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc",
-    "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc"
+    "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc",
+    "test": "yarn cypress run"
   },
   "dependencies": {
     "@hookform/resolvers": "^0.1.1",
@@ -40,6 +41,7 @@
     "yup": "^0.29.1"
   },
   "devDependencies": {
+    "cypress": "^5.3.0",
     "eslint": "^7.9.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-jsx-a11y": "^6.3.1",

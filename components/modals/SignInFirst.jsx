@@ -7,6 +7,7 @@ const SigninFirst = ({ isOpen, handleModal }) => {
 
   return (
     <Modal
+      id="signinFirst"
       dimmer
       open={isOpen}
       size="tiny"

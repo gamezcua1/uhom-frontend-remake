@@ -13,7 +13,7 @@ const Avatar = () => {
   const router = useRouter();
 
   const trigger = (
-    <span>
+    <span id="loggedUserAvatar">
       <Image avatar src={avatar} size="mini" />
     </span>
   );
@@ -25,12 +25,7 @@ const Avatar = () => {
 
   return (
     <div>
-      <Dropdown
-        id="loggedUserAvatar"
-        trigger={trigger}
-        pointing="top right"
-        icon={null}
-      >
+      <Dropdown trigger={trigger} pointing="top right" icon={null}>
         <Dropdown.Menu id="loggedUserMenu">
           <Dropdown.Header content={`¡Hola, ${currentUser.names}! `} />
 

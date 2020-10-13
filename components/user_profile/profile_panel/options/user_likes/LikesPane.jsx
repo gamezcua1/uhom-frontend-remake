@@ -16,7 +16,7 @@ const LikesPane = () => {
 
   const setPage = ({ page }) => {
     router.push({
-      pathname: `/user/${router.query.userId}`,
+      pathname: `/users/${router.query.userId}`,
       query: { page, tab: "my-likes" },
     });
   };

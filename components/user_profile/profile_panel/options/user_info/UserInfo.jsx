@@ -1,20 +1,22 @@
 import React from "react";
 import { Button, Grid, Header, Icon, Segment } from "semantic-ui-react";
 
-const UserInfo = ({ user, handleEdition }) => {
+const UserInfo = ({ user, handleEdition, canEdit }) => {
   return (
     <>
       <Segment vertical>
-        <Grid.Column width={4}>
-          <Button
-            floated="right"
-            className="btn-signin"
-            icon
-            onClick={handleEdition}
-          >
-            <Icon name="edit" size="large" /> Editar
-          </Button>
-        </Grid.Column>
+        {canEdit && (
+          <Grid.Column width={4}>
+            <Button
+              floated="right"
+              className="btn-signin"
+              icon
+              onClick={handleEdition}
+            >
+              <Icon name="edit" size="large" /> Editar
+            </Button>
+          </Grid.Column>
+        )}
 
         <Grid columns={2} stackable textAlign="center">
           <Grid.Row verticalAlign="middle">

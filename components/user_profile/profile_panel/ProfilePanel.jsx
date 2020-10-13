@@ -12,7 +12,7 @@ const ProfilePanel = () => {
 
   const handleTabChange = (_event, data) => {
     const { activeIndex } = data;
-    router.push(`/user/${router.query.userId}?tab=${validTabs[activeIndex]}`);
+    router.push(`/users/${router.query.userId}?tab=${validTabs[activeIndex]}`);
   };
 
   return (

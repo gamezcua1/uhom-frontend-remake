@@ -7,7 +7,7 @@ import { useUserAvatar } from "../../lib/hooks/users";
 
 const Avatar = () => {
   const { logout, token, currentUser } = useContext(UserContext);
-  const BASE_URI = `/user/${currentUser.uuid}`;
+  const BASE_URI = `/users/${currentUser.uuid}`;
   const avatar = useUserAvatar(currentUser);
 
   const router = useRouter();

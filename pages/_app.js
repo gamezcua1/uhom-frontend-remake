@@ -13,7 +13,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <Head>
-        <link rel="manifest" href="manifest.json" />
+        <link rel="manifest" href="/manifest.json" />
         <meta charSet="utf8" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
 
@@ -40,27 +40,27 @@ function MyApp({ Component, pageProps }) {
           rel="icon"
           type="image/x-icon"
           sizes="64x64 32x32 24x24 16x16"
-          href="favicon.ico"
+          href="/favicon.ico"
         />
         <link
           rel="apple-touch-icon"
           type="image/x-icon"
           sizes="64x64 32x32 24x24 16x16"
-          href="favicon.ico"
+          href="/favicon.ico"
         />
-        <link rel="icon" type="image/png" sizes="512x512" href="logo512.png" />
+        <link rel="icon" type="image/png" sizes="512x512" href="/logo512.png" />
         <link
           rel="apple-touch-icon"
           type="image/png"
           sizes="512x512"
-          href="logo512.png"
+          href="/logo512.png"
         />
-        <link rel="icon" type="image/png" sizes="192x192" href="logo192.png" />
+        <link rel="icon" type="image/png" sizes="192x192" href="/logo192.png" />
         <link
           rel="apple-touch-icon"
           type="image/png"
           sizes="192x192"
-          href="logo192.png"
+          href="/logo192.png"
         />
 
         {/* 

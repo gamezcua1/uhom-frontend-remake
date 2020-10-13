@@ -31,14 +31,16 @@ describe("Login", () => {
       );
     });
 
-    it("Should be a successful login", async () => {
-      const { client } = await cy.fixture("users.json");
-      cy.login(client);
-      cy.get("span#avatar").should("be.visible");
+    it("Should be a successful login", () => {
+      cy.fixture("users.json").then((response) => {
+        const { client } = response;
+        cy.login(client);
+        cy.get("span#loggedUserAvatar").should("be.visible");
 
-      cy.getCookies()
-        .should("have.length", 1)
-        .then((cookie) => expect(cookie[0]).to.have.property("name", "uid"));
+        cy.getCookies()
+          .should("have.length", 1)
+          .then((cookie) => expect(cookie[0]).to.have.property("name", "uid"));
+      });
     });
   });
 });

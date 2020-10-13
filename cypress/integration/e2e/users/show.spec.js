@@ -30,7 +30,6 @@ describe("End-2-end tests for users show", function () {
     cy.get("#surnames").clear().type("Perez");
     cy.get(".btn-login").click();
 
-    cy.wait(1000);
     cy.get(".body-container").contains("Juanito");
     cy.get(".body-container").contains("Perez");
   });

@@ -1,6 +1,13 @@
 {
   "name": "GoHome's",
   "short_name": "GoHome's",
+  "description": "Brindamos acompañamiento y asesoría profesional para que tomes la MEJOR DECISIÓN y vivas la emoción de adquirir la CASA de tus SUEÑOS.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "theme_color": "#0b3c5d",
+  "background_color": "#0b3c5d",
   "icons": [
     {
       "src": "favicon.ico",
@@ -8,19 +15,14 @@
       "type": "image/x-icon"
     },
     {
-      "src": "logo192.png",
-      "type": "image/png",
-      "sizes": "192x192"
+      "src": "logo512.png",
+      "sizes": "512x512",
+      "type": "image/png"
     },
     {
-      "src": "logo512.png",
-      "type": "image/png",
-      "sizes": "512x512"
+      "src": "logo192.png",
+      "sizes": "192x192",
+      "type": "image/png"
     }
-  ],
-  "theme_color": "#ffffff",
-  "background_color": "#0b3c5d",
-  "display": "standalone",
-  "orientation": "portrait",
-  "scope": "/app/"
+  ]
 }

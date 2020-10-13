@@ -3,8 +3,8 @@
 # preferences
 .vscode
 cypress/*/examples
-public/*.js
-public/*.js.map
+public/sw.js
+public/workbox-*.js
 
 # dependencies
 /node_modules

@@ -10,7 +10,7 @@ Cypress.Commands.add("login", (user) => {
 });
 
 Cypress.Commands.add("logoutAsUser", () => {
-  cy.get("#avatar").click();
+  cy.get("span#loggedUserAvatar").first().click();
   cy.get(".logout").first().click();
 });
 

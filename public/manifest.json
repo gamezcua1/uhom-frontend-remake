@@ -22,5 +22,6 @@
   "background_color": "#0b3c5d",
   "display": "standalone",
   "orientation": "portrait",
-  "scope": "/app/"
+  "scope": "/app/",
+  "start_url": "/"
 }

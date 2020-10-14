@@ -21,4 +21,8 @@ export default class UsersController {
       })
     );
   }
+
+  static block(user) {
+    return axios.delete(`users/${user}`, setHeaders(null, {}));
+  }
 }

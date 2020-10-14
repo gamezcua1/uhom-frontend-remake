@@ -20,6 +20,7 @@ const UsersList = ({ users = [], error }) => {
             <Table.HeaderCell>Teléfono</Table.HeaderCell>
             <Table.HeaderCell>Correo electrónico</Table.HeaderCell>
             <Table.HeaderCell>Rol</Table.HeaderCell>
+            <Table.HeaderCell>Acciones</Table.HeaderCell>
           </Table.Row>
         </Table.Header>
 

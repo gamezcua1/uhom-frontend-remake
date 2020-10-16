@@ -15,7 +15,7 @@ export default function NavbarItems({ handleSideBar }) {
       </Link>
 
       {isAdmin() && (
-        <Link href="/users">
+        <Link href="/admin/users">
           <Menu.Item onClick={handleSideBar} as="a">
             Usuarios
           </Menu.Item>

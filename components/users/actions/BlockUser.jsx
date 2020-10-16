@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Button } from "semantic-ui-react";
-import UsersController from "../../../../controllers/UsersController";
+import UsersController from "../../../controllers/UsersController";
 
 const BlockUser = ({ user }) => {
   const [blocked, setBlocked] = useState(user.blocked);

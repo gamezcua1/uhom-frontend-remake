@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import Link from "next/link";
 import { Menu } from "semantic-ui-react";
+import { UserContext } from "../../../lib/context/UserContext";
 
 export default function NavbarItems({ handleSideBar }) {
+  const { isAdmin } = useContext(UserContext);
+
   return (
     <>
       <Link href="/">
@@ -10,6 +13,14 @@ export default function NavbarItems({ handleSideBar }) {
           Inicio
         </Menu.Item>
       </Link>
+
+      {isAdmin() && (
+        <Link href="/admin/users">
+          <Menu.Item onClick={handleSideBar} as="a">
+            Usuarios
+          </Menu.Item>
+        </Link>
+      )}
 
       <Link href="/properties">
         <Menu.Item onClick={handleSideBar} as="a">

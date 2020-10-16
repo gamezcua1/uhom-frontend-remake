@@ -1,85 +1,12 @@
-import React, { useState, useEffect } from "react";
-import { Dropdown, Icon } from "semantic-ui-react";
-
-const locations = [
-  "Todos",
-  "Armería",
-  "Colima",
-  "Comala",
-  "Coquimatlán",
-  "Cuauhtémoc",
-  "Ixtlahuacán",
-  "Manzanillo",
-  "Minatitlan",
-  "Tecomán",
-  "Villa",
-].map((e, i) => ({ key: `location_${i}`, value: i, text: e }));
-
-const construction_area = [0, 100, 200, 300].map((e) => ({
-  key: `square_${e}`,
-  value: e,
-  text: e === 0 ? "Todos" : e,
-}));
-
-const price = ["0", "500,000", "1,000,000", "1,500,000", "2,000,000"].map(
-  (e) => ({
-    key: `price_${e}`,
-    value: parseInt(e.split(",").join("")),
-    text: e == "0" ? "Todos" : e,
-  })
-);
-
-const rooms = [0, 1, 2, 3, 4, 5, 6].map((_p, i) => ({
-  key: `room_${i}`,
-  value: i,
-  text: i === 0 ? "Todos" : i,
-}));
-const bathrooms = [0, 1, 2, 3, 4, 5, 6].map((_p, i) => ({
-  key: `bath_${i}`,
-  value: i,
-  text: i === 0 ? "Todos" : i,
-}));
-
-const Filter = ({ getProperties, filters }) => {
-  const [query, setQuery] = useState({});
-  const [showFilter, setShowFilter] = useState(false);
-
-  useEffect(() => {
-    setShowFilter(Object.keys(filters).length > 1);
-  }, [filters]);
-
-  const handleFilter = () => getProperties({ filter: query });
-
-  const onChange = ({ value, name }) => {
-    if (value > 0) setQuery({ ...query, [name]: value });
-    else {
-      const new_query = { ...query };
-      delete new_query[name];
-      setQuery(new_query);
-    }
-  };
-
-  return (
-    <div>
-      <div className="property-filter-button">
-        <button
-          className="btn-primary"
-          onClick={() => setShowFilter(!showFilter)}
-        >
-          <Icon name="filter" /> Filtrar
-        </button>
-      </div>
-
-      {showFilter && (
-        <FilterInputs
-          onChange={onChange}
-          handleFilter={handleFilter}
-          filters={filters}
-        />
-      )}
-    </div>
-  );
-};
+import React from "react";
+import { Dropdown } from "semantic-ui-react";
+import {
+  bathrooms,
+  construction_area,
+  locations,
+  price,
+  rooms,
+} from "../../../../lib/services/PropertiesOptions";
 
 const FilterInputs = ({ onChange, handleFilter, filters }) => (
   <div className="property-filter">
@@ -183,4 +110,4 @@ const FilterInputs = ({ onChange, handleFilter, filters }) => (
   </div>
 );
 
-export default Filter;
+export default FilterInputs;

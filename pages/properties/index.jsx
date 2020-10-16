@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 
 import { usePropertiesIndex } from "../../lib/hooks/properties";
 import PropertiesCatalog from "../../components/properties/catalog/PropertiesCatalog";
-import Filter from "../../components/properties/actions/Filter";
+import PropertiesPanelOptions from "../../components/properties/actions/panel/PropertiesPanelOptions";
 
 const PropertiesIndex = () => {
   const noResultMessage =
@@ -25,7 +25,10 @@ const PropertiesIndex = () => {
 
   return (
     <>
-      <Filter getProperties={getProperties} filters={router.query} />
+      <PropertiesPanelOptions
+        getProperties={getProperties}
+        filters={router.query}
+      />
       <PropertiesCatalog
         currentPage={router.query.page || 1}
         itemsPerPage={itemsPerPage}

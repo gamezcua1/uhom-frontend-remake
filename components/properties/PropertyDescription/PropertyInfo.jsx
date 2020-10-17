@@ -6,6 +6,7 @@ import ExtraDescription from "./ExtraDescription";
 import MainFeatures from "./MainFeatures";
 import MainInfo from "./MainInfo";
 import { UserContext } from "../../../lib/context/UserContext";
+import AdminActions from "../actions/AdminActions";
 
 export default function PropertyInfo({ propertyInfo, propertyLocation }) {
   const { isAdmin } = useContext(UserContext);
@@ -51,7 +52,9 @@ export default function PropertyInfo({ propertyInfo, propertyLocation }) {
         <ExtraDescription extraDescription={extra_description} />
 
         <Segment>
-          {!isAdmin() && <AppopinmentButton address={address} price={price} />}
+          {(!isAdmin() && (
+            <AppopinmentButton address={address} price={price} />
+          )) || <AdminActions />}
         </Segment>
       </Segment.Group>
     </Grid.Column>

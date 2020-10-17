@@ -34,7 +34,7 @@ export default function AppopinmentButton({ address, price }) {
         <Button
           id="appoinmentButton"
           className="btn-signin"
-          onClick={() => handleAppoinment()}
+          onClick={handleAppoinment}
         >
           ¡Conoce la casa!
         </Button>

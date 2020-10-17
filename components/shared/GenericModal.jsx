@@ -25,7 +25,7 @@ const GenericModal = ({
   };
 
   const buttonElement = button || (
-    <Button className="btn-signin">{openText}</Button>
+    <Button className="btn-login">{openText}</Button>
   );
 
   return (

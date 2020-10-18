@@ -14,7 +14,7 @@ const Avatar = () => {
 
   const trigger = (
     <span id="loggedUserAvatar">
-      <Image avatar src={avatar} size="mini" />
+      <Image src={avatar} size="mini" className="custom-avatar" />
     </span>
   );
 

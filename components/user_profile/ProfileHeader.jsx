@@ -11,7 +11,7 @@ const ProfileHeader = ({ fullName, avatar }) => {
       textAlign="center"
     >
       <Image
-        avatar
+        className="custom-avatar medium-avatar"
         src={avatar || defaults.avatar}
         size="small"
         verticalAlign="middle"

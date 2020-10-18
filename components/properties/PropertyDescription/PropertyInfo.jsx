@@ -1,12 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Grid, Menu, Segment } from "semantic-ui-react";
 import AppopinmentButton from "../actions/AppointmentButton";
 import LikeButton from "../actions/LikeButton";
 import ExtraDescription from "./ExtraDescription";
 import MainFeatures from "./MainFeatures";
 import MainInfo from "./MainInfo";
+import { UserContext } from "../../../lib/context/UserContext";
+import AdminActions from "../actions/AdminActions";
 
 export default function PropertyInfo({ propertyInfo, propertyLocation }) {
+  const { isAdmin } = useContext(UserContext);
   const {
     uuid,
     address,
@@ -30,9 +33,11 @@ export default function PropertyInfo({ propertyInfo, propertyLocation }) {
           fullAddress={`${address}, ${city}, ${state}.`}
         />
 
-        <Menu borderless secondary>
-          <LikeButton likesInfo={likes_info} propertyId={uuid} />
-        </Menu>
+        {!isAdmin() && (
+          <Menu borderless secondary>
+            <LikeButton likesInfo={likes_info} propertyId={uuid} />
+          </Menu>
+        )}
 
         <MainFeatures
           features={{
@@ -47,7 +52,9 @@ export default function PropertyInfo({ propertyInfo, propertyLocation }) {
         <ExtraDescription extraDescription={extra_description} />
 
         <Segment>
-          <AppopinmentButton address={address} price={price} />
+          {(!isAdmin() && (
+            <AppopinmentButton address={address} price={price} />
+          )) || <AdminActions />}
         </Segment>
       </Segment.Group>
     </Grid.Column>

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { Container, Header, Message } from "semantic-ui-react";
+import { Container, Header } from "semantic-ui-react";
 import PropertyForm from "../../../components/properties/form/PropertyForm";
+import GenericSuccessMessage from "../../../components/shared/GenericSuccessMessage";
 import PropertiesController from "../../../controllers/PropertiesController";
 import useAdminPermissions from "../../../lib/hooks/admins";
 
@@ -17,23 +18,17 @@ const Add = () => {
 
   const handleMessage = () => {
     setSuccess(true);
-    window.scrollTo({
-      top: 0,
-      behavior: "auto",
-    });
-    setTimeout(() => setSuccess(false), 5000);
   };
 
   return (
     <Container className="users-list">
-      {isSuccess && (
-        <Message
-          icon="check circle outline"
-          success
-          header="Registro exitoso"
-          content="La propiedad ha sido registrada exitosamente. En la sección de 'Propiedades' verás los cambios."
-        />
-      )}
+      <GenericSuccessMessage
+        icon="check circle outline"
+        header="Registro exitoso"
+        content="La propiedad ha sido registrada exitosamente. En la sección de 'Propiedades' verás los cambios."
+        isVisible={isSuccess}
+        setVisible={setSuccess}
+      />
 
       <Header as="h1" textAlign="center">
         Agregar casa

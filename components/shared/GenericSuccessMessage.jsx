@@ -8,7 +8,6 @@ const GenericSuccessMessage = ({
   isVisible,
   setVisible,
 }) => {
-  console.log(isVisible);
   useEffect(() => {
     if (isVisible) handleVisiblity();
   }, [isVisible]);
@@ -23,13 +22,11 @@ const GenericSuccessMessage = ({
   };
 
   return (
-    <Message
-      icon={icon}
-      content={content}
-      header={header}
-      success
-      hidden={!isVisible}
-    />
+    <>
+      {isVisible && (
+        <Message icon={icon} content={content} header={header} success />
+      )}
+    </>
   );
 };
 

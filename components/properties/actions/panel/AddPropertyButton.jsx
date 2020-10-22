@@ -4,7 +4,7 @@ import { Button, Menu } from "semantic-ui-react";
 
 const AddPropetyButton = () => {
   return (
-    <Link href="/admin/properties/add">
+    <Link href="/admin/properties">
       <Menu.Item>
         <Button
           id="addProperty"

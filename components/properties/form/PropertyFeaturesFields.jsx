@@ -2,19 +2,35 @@ import React, { useState } from "react";
 import { Controller } from "react-hook-form";
 import { Divider, Dropdown, Form, Header } from "semantic-ui-react";
 import { toNumberFormat } from "../../../lib/helpers/inputsFormatter";
-import { propertyRegistrationLocations } from "../../../lib/services/PropertiesOptions";
+import {
+  cities,
+  propertyRegistrationLocations,
+} from "../../../lib/services/PropertiesOptions";
 
-const PropertyFeaturesFields = ({ errors, register, control }) => {
-  const [price, setPrice] = useState("");
-  const [bathrooms, setBathrooms] = useState("");
-  const [bedrooms, setBedrooms] = useState("");
+const PropertyFeaturesFields = ({
+  errors,
+  register,
+  control,
+  required,
+  defaultValues,
+  city,
+}) => {
+  const {
+    price: defaultPrice,
+    bathrooms: defaultBathrooms,
+    bedrooms: defaultBedrooms,
+    address,
+  } = defaultValues;
+  const [price, setPrice] = useState(defaultPrice || "");
+  const [bathrooms, setBathrooms] = useState(defaultBathrooms || "");
+  const [bedrooms, setBedrooms] = useState(defaultBedrooms || "");
 
   return (
     <>
       <Header as="h3" content="Sobre la propiedad" />
       <Divider />
       <Form.Group>
-        <Form.Field required width={8}>
+        <Form.Field required={required} width={8}>
           <label htmlFor="price">Costo de la propiedad: </label>
           <div className="ui labeled input">
             <div className="ui label label">$MXN</div>
@@ -30,7 +46,7 @@ const PropertyFeaturesFields = ({ errors, register, control }) => {
           {errors.price && <p className="dark-error">{errors.price.message}</p>}
         </Form.Field>
 
-        <Form.Field required width={4}>
+        <Form.Field required={required} width={4}>
           <label htmlFor="bathrooms">No. de baños:</label>
           <div className="ui input">
             <input
@@ -49,7 +65,7 @@ const PropertyFeaturesFields = ({ errors, register, control }) => {
           )}
         </Form.Field>
 
-        <Form.Field required width={4}>
+        <Form.Field required={required} width={4}>
           <label htmlFor="bedrooms">No. de habitaciones:</label>
           <div className="ui input">
             <input
@@ -70,7 +86,7 @@ const PropertyFeaturesFields = ({ errors, register, control }) => {
       </Form.Group>
 
       <Form.Group>
-        <Form.Field required width={10}>
+        <Form.Field required={required} width={10}>
           <label htmlFor="address">Dirección:</label>
           <div className="ui input">
             <input
@@ -78,6 +94,7 @@ const PropertyFeaturesFields = ({ errors, register, control }) => {
               name="address"
               placeholder="Dirección"
               ref={register}
+              defaultValue={address}
             />
           </div>
           {errors.address && (
@@ -85,7 +102,7 @@ const PropertyFeaturesFields = ({ errors, register, control }) => {
           )}
         </Form.Field>
 
-        <Form.Field required width={6}>
+        <Form.Field required={required} width={6}>
           <label htmlFor="location_id"> Municipio:</label>
           <Controller
             control={control}
@@ -98,6 +115,9 @@ const PropertyFeaturesFields = ({ errors, register, control }) => {
                 options={propertyRegistrationLocations}
                 ref={register}
                 onChange={(_e, { value }) => onChange(value)}
+                {...(city && {
+                  defaultValue: cities.indexOf(city),
+                })}
               />
             )}
           />

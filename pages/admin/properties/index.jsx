@@ -1,23 +1,19 @@
 import React, { useState } from "react";
-import { Container, Header } from "semantic-ui-react";
+import { Container, Header, Segment } from "semantic-ui-react";
 import PropertyForm from "../../../components/properties/form/PropertyForm";
 import GenericSuccessMessage from "../../../components/shared/GenericSuccessMessage";
 import PropertiesController from "../../../controllers/PropertiesController";
 import useAdminPermissions from "../../../lib/hooks/admins";
 
-const Add = () => {
+const Index = () => {
   useAdminPermissions();
   const [isSuccess, setSuccess] = useState(false);
   const [responseErrors, setErrors] = useState({});
 
   const handlePropertyAdd = (property) => {
     PropertiesController.create(property)
-      .then(() => handleMessage())
+      .then(() => setSuccess(true))
       .catch((err) => setErrors(err.response.data.details));
-  };
-
-  const handleMessage = () => {
-    setSuccess(true);
   };
 
   return (
@@ -30,15 +26,18 @@ const Add = () => {
         setVisible={setSuccess}
       />
 
-      <Header as="h1" textAlign="center">
-        Agregar casa
-      </Header>
-      <PropertyForm
-        responseErrors={responseErrors}
-        submitionHandler={handlePropertyAdd}
-      />
+      <Segment basic>
+        <Header as="h1" textAlign="center">
+          Agregar casa
+        </Header>
+
+        <PropertyForm
+          responseErrors={responseErrors}
+          submitionHandler={handlePropertyAdd}
+        />
+      </Segment>
     </Container>
   );
 };
 
-export default Add;
+export default Index;

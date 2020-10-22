@@ -10,7 +10,13 @@ import { yupResolver } from "@hookform/resolvers";
 import { useRouter } from "next/router";
 import { validationsAfterSubmit } from "../../../lib/validations/ValidationsSchemas";
 
-const PropertyForm = ({ submitionHandler, responseErrors }) => {
+const PropertyForm = ({
+  submitionHandler,
+  responseErrors,
+  required = true,
+  discardImages,
+  defaultProperty,
+}) => {
   const router = useRouter();
   const { errors, handleSubmit, register, setError, control } = useForm({
     resolver: yupResolver(newPropertyValidations),
@@ -30,14 +36,23 @@ const PropertyForm = ({ submitionHandler, responseErrors }) => {
       className="large"
       onSubmit={handleSubmit(submitionHandler)}
     >
-      <PropertyImagesField errors={errors} register={register} />
+      {!discardImages && (
+        <PropertyImagesField errors={errors} register={register} />
+      )}
       <PropertyFeaturesFields
         control={control}
         errors={errors}
         register={register}
+        required={required}
+        defaultValues={defaultProperty}
       />
-      <LandFeaturesFields errors={errors} register={register} />
-      <ExtraDescription register={register} />
+      <LandFeaturesFields
+        required={required}
+        errors={errors}
+        register={register}
+        defaultValues={defaultProperty}
+      />
+      <ExtraDescription register={register} defaultValues={defaultProperty} />
 
       <div className="fluid">
         <Button

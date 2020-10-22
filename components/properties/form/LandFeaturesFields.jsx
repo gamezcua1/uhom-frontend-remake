@@ -2,10 +2,15 @@ import React, { useState } from "react";
 import { Divider, Form, Header } from "semantic-ui-react";
 import { toNumberFormat } from "../../../lib/helpers/inputsFormatter";
 
-const LandFeaturesFields = ({ errors, register }) => {
-  const [construction_area, setArea] = useState("");
-  const [deep_meters, setDeep] = useState("");
-  const [front_meters, setFront] = useState("");
+const LandFeaturesFields = ({ errors, register, required, defaultValues }) => {
+  const {
+    construction_area: constructionArea,
+    front_meters: frontMeters,
+    deep_meters: deepMeters,
+  } = defaultValues;
+  const [construction_area, setArea] = useState(constructionArea || "");
+  const [deep_meters, setDeep] = useState(deepMeters || "");
+  const [front_meters, setFront] = useState(frontMeters || "");
 
   return (
     <>
@@ -13,7 +18,7 @@ const LandFeaturesFields = ({ errors, register }) => {
       <Divider />
 
       <Form.Group widths="equal">
-        <Form.Field required>
+        <Form.Field required={required}>
           <label htmlFor="construction_area">Área construida:</label>
           <div className="ui labeled input">
             <input
@@ -33,7 +38,7 @@ const LandFeaturesFields = ({ errors, register }) => {
           )}
         </Form.Field>
 
-        <Form.Field required>
+        <Form.Field required={required}>
           <label htmlFor="front_meters">Metros de frente:</label>
           <div className="ui right labeled input">
             <input
@@ -51,7 +56,7 @@ const LandFeaturesFields = ({ errors, register }) => {
           )}
         </Form.Field>
 
-        <Form.Field required>
+        <Form.Field required={required}>
           <label htmlFor="deep_meters">Metros de fondo:</label>
           <div className="ui labeled input">
             <input

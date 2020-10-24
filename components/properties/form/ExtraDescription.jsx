@@ -2,7 +2,7 @@ import React from "react";
 import { Divider, Form, Header } from "semantic-ui-react";
 
 const ExtraDescription = ({ register, defaultValues }) => {
-  const { extra_description: extraDescription = "" } = defaultValues;
+  const { extra_description: extraDescription = "" } = defaultValues || {};
   return (
     <>
       <Header as="h3" content="Descripción adicional sobre la propiedad" />

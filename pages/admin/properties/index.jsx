@@ -19,7 +19,6 @@ const Index = () => {
   return (
     <Container className="users-list">
       <GenericSuccessMessage
-        icon="check circle outline"
         header="Registro exitoso"
         content="La propiedad ha sido registrada exitosamente. En la sección de 'Propiedades' verás los cambios."
         isVisible={isSuccess}

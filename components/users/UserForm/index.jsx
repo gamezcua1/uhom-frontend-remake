@@ -2,13 +2,13 @@ import React from "react";
 import { useEffect } from "react";
 import Cleave from "cleave.js/react";
 import { useForm, Controller } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers";
 import { Button, Divider, Form, Icon } from "semantic-ui-react";
 import {
   notRequiredValidations,
   signupValidations,
   validationsAfterSubmit,
 } from "../../../lib/validations/ValidationsSchemas";
+import { setFormResolver } from "../../../lib/validations/resolver";
 
 const UserForm = ({
   user,
@@ -21,10 +21,12 @@ const UserForm = ({
   required = true,
   customClasses,
 }) => {
-  const setResolver = () =>
-    required ? signupValidations : notRequiredValidations;
   const { control, errors, handleSubmit, register, setError } = useForm({
-    resolver: yupResolver(setResolver()),
+    resolver: setFormResolver(
+      required,
+      signupValidations,
+      notRequiredValidations
+    ),
   });
 
   useEffect(() => {

@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { Message } from "semantic-ui-react";
 
 const GenericSuccessMessage = ({
-  icon,
+  icon = "check circle outline",
   header,
   content,
   isVisible,

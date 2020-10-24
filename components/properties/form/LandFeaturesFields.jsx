@@ -7,7 +7,7 @@ const LandFeaturesFields = ({ errors, register, required, defaultValues }) => {
     construction_area: constructionArea,
     front_meters: frontMeters,
     deep_meters: deepMeters,
-  } = defaultValues;
+  } = defaultValues || {};
   const [construction_area, setArea] = useState(constructionArea || "");
   const [deep_meters, setDeep] = useState(deepMeters || "");
   const [front_meters, setFront] = useState(frontMeters || "");

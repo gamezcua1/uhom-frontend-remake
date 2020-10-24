@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import { Controller } from "react-hook-form";
 import { Divider, Dropdown, Form, Header } from "semantic-ui-react";
-import { toNumberFormat } from "../../../lib/helpers/inputsFormatter";
+import {
+  toNumberFormat,
+  parseValue,
+} from "../../../lib/helpers/inputsFormatter";
 import {
   cities,
   propertyRegistrationLocations,
@@ -13,15 +16,17 @@ const PropertyFeaturesFields = ({
   control,
   required,
   defaultValues,
-  city,
 }) => {
   const {
-    price: defaultPrice,
-    bathrooms: defaultBathrooms,
-    bedrooms: defaultBedrooms,
-    address,
-  } = defaultValues;
-  const [price, setPrice] = useState(defaultPrice || "");
+    price: defaultPrice = "",
+    bathrooms: defaultBathrooms = "",
+    bedrooms: defaultBedrooms = "",
+    address = "",
+    location = "",
+  } = defaultValues || {};
+  const { city = "" } = location;
+
+  const [price, setPrice] = useState(parseValue(defaultPrice) || "");
   const [bathrooms, setBathrooms] = useState(defaultBathrooms || "");
   const [bedrooms, setBedrooms] = useState(defaultBedrooms || "");
 
@@ -115,9 +120,7 @@ const PropertyFeaturesFields = ({
                 options={propertyRegistrationLocations}
                 ref={register}
                 onChange={(_e, { value }) => onChange(value)}
-                {...(city && {
-                  defaultValue: cities.indexOf(city),
-                })}
+                defaultValue={cities.indexOf(city) + 1}
               />
             )}
           />

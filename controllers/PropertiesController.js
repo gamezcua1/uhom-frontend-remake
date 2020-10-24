@@ -11,4 +11,12 @@ export default class PropertiesController {
       })
     );
   }
+
+  static update(propertyId, property) {
+    return axios.patch(
+      `/properties/${propertyId}`,
+      setPropertyParams(property),
+      setHeaders()
+    );
+  }
 }

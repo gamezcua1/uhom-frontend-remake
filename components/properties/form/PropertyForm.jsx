@@ -6,20 +6,21 @@ import PropertyFeaturesFields from "./PropertyFeaturesFields";
 import PropertyImagesField from "./PropertyImagesField";
 import LandFeaturesFields from "./LandFeaturesFields";
 import ExtraDescription from "./ExtraDescription";
-import { yupResolver } from "@hookform/resolvers";
 import { useRouter } from "next/router";
 import { validationsAfterSubmit } from "../../../lib/validations/ValidationsSchemas";
+import UpdateImagesButton from "./actions/UpdateImagesButton";
+import { setFormResolver } from "../../../lib/validations/resolver";
 
 const PropertyForm = ({
   submitionHandler,
   responseErrors,
   required = true,
-  discardImages,
+  willUpdateImages,
   defaultProperty,
 }) => {
   const router = useRouter();
   const { errors, handleSubmit, register, setError, control } = useForm({
-    resolver: yupResolver(newPropertyValidations),
+    resolver: setFormResolver(required, newPropertyValidations, null),
   });
 
   useEffect(() => {
@@ -36,7 +37,9 @@ const PropertyForm = ({
       className="large"
       onSubmit={handleSubmit(submitionHandler)}
     >
-      {!discardImages && (
+      {willUpdateImages ? (
+        <UpdateImagesButton />
+      ) : (
         <PropertyImagesField errors={errors} register={register} />
       )}
       <PropertyFeaturesFields

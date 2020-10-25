@@ -17,6 +17,8 @@ const PropertyForm = ({
   required = true,
   willUpdateImages,
   defaultProperty,
+  icon,
+  buttonMessage,
 }) => {
   const router = useRouter();
   const { errors, handleSubmit, register, setError, control } = useForm({
@@ -38,7 +40,7 @@ const PropertyForm = ({
       onSubmit={handleSubmit(submitionHandler)}
     >
       {willUpdateImages ? (
-        <UpdateImagesButton />
+        <UpdateImagesButton propertyId={defaultProperty.uuid} />
       ) : (
         <PropertyImagesField errors={errors} register={register} />
       )}
@@ -62,8 +64,8 @@ const PropertyForm = ({
           id="submitProperty"
           className="btn-login"
           type="submit"
-          icon="add"
-          content="Agregar propiedad"
+          icon={icon}
+          content={buttonMessage}
         />
         <Divider hidden />
         <Button
@@ -72,6 +74,7 @@ const PropertyForm = ({
           icon="undo"
           content="Regresar"
           onClick={() => router.back()}
+          type="button"
         />
       </div>
     </Form>

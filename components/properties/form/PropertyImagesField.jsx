@@ -1,9 +1,9 @@
 import React from "react";
 import { Divider, Form, Header } from "semantic-ui-react";
 
-const PropertyImagesField = ({ errors, register }) => (
+const PropertyImagesField = ({ errors = {}, register }) => (
   <>
-    <Header as="h3" content="Fotos de la propiedad" />
+    <Header as="h3" content="Agregar fotos" />
     <Divider />
     <Form.Field required>
       <label htmlFor="images">Fotos: </label>

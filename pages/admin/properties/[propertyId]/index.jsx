@@ -28,7 +28,6 @@ const PropertyShow = () => {
       .catch((err) => setErrors(err.response.data.details));
   };
 
-  if (!response) return <Loading />;
   if (error)
     return (
       <Error
@@ -37,6 +36,7 @@ const PropertyShow = () => {
         redirectionMessage="Ver más propiedades."
       />
     );
+  if (!response) return <Loading />;
 
   return (
     <Container>
@@ -53,10 +53,12 @@ const PropertyShow = () => {
 
         <PropertyForm
           required={false}
-          willUpdateImages
+          willUpdate
           defaultProperty={property}
           responseErrors={responseErrors}
           submitionHandler={updateProperty}
+          icon="edit"
+          buttonMessage="Actualizar cambios"
         />
       </Segment>
     </Container>

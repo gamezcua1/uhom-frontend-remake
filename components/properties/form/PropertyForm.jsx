@@ -1,16 +1,16 @@
 import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
-import { Button, Divider, Form } from "semantic-ui-react";
+import { Divider, Form } from "semantic-ui-react";
 import { newPropertyValidations } from "../../../lib/validations/PropertiesValidationsSchemas";
 import PropertyFeaturesFields from "./PropertyFeaturesFields";
 import PropertyImagesField from "./PropertyImagesField";
 import LandFeaturesFields from "./LandFeaturesFields";
 import ExtraDescription from "./ExtraDescription";
-import { useRouter } from "next/router";
 import { validationsAfterSubmit } from "../../../lib/validations/ValidationsSchemas";
 import UpdateImagesButton from "./actions/UpdateImagesButton";
 import { setFormResolver } from "../../../lib/validations/resolver";
 import SubmitPropertyButton from "./actions/SubmitPropertyButton";
+import GoBackButton from "../../shared/GoBackButton";
 
 const PropertyForm = ({
   submitionHandler,
@@ -21,7 +21,6 @@ const PropertyForm = ({
   icon,
   buttonMessage,
 }) => {
-  const router = useRouter();
   const { errors, handleSubmit, register, setError, control } = useForm({
     resolver: setFormResolver(required, newPropertyValidations, null),
   });
@@ -65,14 +64,7 @@ const PropertyForm = ({
           willUpdate={willUpdate}
         />
         <Divider hidden />
-        <Button
-          id="goBack"
-          className="btn-signin"
-          icon="undo"
-          content="Regresar"
-          onClick={() => router.back()}
-          type="button"
-        />
+        <GoBackButton />
       </div>
     </Form>
   );

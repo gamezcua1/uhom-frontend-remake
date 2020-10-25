@@ -33,6 +33,8 @@ const Index = () => {
         <PropertyForm
           responseErrors={responseErrors}
           submitionHandler={handlePropertyAdd}
+          buttonMessage="Agregar propiedad"
+          icon="add"
         />
       </Segment>
     </Container>

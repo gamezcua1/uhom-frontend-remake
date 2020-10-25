@@ -1,6 +1,7 @@
 import React from "react";
 import { useRouter } from "next/router";
 import { Button } from "semantic-ui-react";
+import DeleteButton from "./DeleteButton";
 
 const AdminActions = ({ uuid }) => {
   const router = useRouter();
@@ -14,9 +15,7 @@ const AdminActions = ({ uuid }) => {
       >
         Editar
       </Button>
-      <Button fluid className="btn-signin">
-        Eliminar
-      </Button>
+      <DeleteButton propertyId={uuid} />
     </div>
   );
 };

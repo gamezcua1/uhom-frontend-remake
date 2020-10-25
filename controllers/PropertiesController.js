@@ -19,4 +19,8 @@ export default class PropertiesController {
       setHeaders()
     );
   }
+
+  static delete(propertyId) {
+    return axios.delete(`/properties/${propertyId}`, setHeaders());
+  }
 }

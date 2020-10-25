@@ -10,12 +10,13 @@ import { useRouter } from "next/router";
 import { validationsAfterSubmit } from "../../../lib/validations/ValidationsSchemas";
 import UpdateImagesButton from "./actions/UpdateImagesButton";
 import { setFormResolver } from "../../../lib/validations/resolver";
+import SubmitPropertyButton from "./actions/SubmitPropertyButton";
 
 const PropertyForm = ({
   submitionHandler,
   responseErrors,
   required = true,
-  willUpdateImages,
+  willUpdate,
   defaultProperty,
   icon,
   buttonMessage,
@@ -34,12 +35,8 @@ const PropertyForm = ({
   }, [responseErrors]);
 
   return (
-    <Form
-      id="propertyForm"
-      className="large"
-      onSubmit={handleSubmit(submitionHandler)}
-    >
-      {willUpdateImages ? (
+    <Form id="propertyForm" className="large">
+      {willUpdate ? (
         <UpdateImagesButton propertyId={defaultProperty.uuid} />
       ) : (
         <PropertyImagesField errors={errors} register={register} />
@@ -60,12 +57,12 @@ const PropertyForm = ({
       <ExtraDescription register={register} defaultValues={defaultProperty} />
 
       <div className="fluid">
-        <Button
-          id="submitProperty"
-          className="btn-login"
-          type="submit"
+        <SubmitPropertyButton
+          handleSubmit={handleSubmit}
+          submitionHandler={submitionHandler}
+          buttonMessage={buttonMessage}
           icon={icon}
-          content={buttonMessage}
+          willUpdate={willUpdate}
         />
         <Divider hidden />
         <Button

@@ -9,7 +9,7 @@ export default function PropertyCarousel(props) {
 
   return (
     <Grid.Column width={9}>
-      {images.length > 0 && (
+      {images && images.length > 0 && (
         <ImageGalley
           items={items}
           showPlayButton={false}

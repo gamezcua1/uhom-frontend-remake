@@ -10,7 +10,7 @@ const PropertyImagesField = ({ errors = {}, register }) => (
       <input
         type="file"
         name="images"
-        accept="images/*"
+        accept="image/*"
         multiple
         ref={register}
       />

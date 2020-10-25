@@ -24,7 +24,12 @@ const GenericSuccessMessage = ({
   return (
     <>
       {isVisible && (
-        <Message icon={icon} content={content} header={header} success />
+        <Message
+          icon={icon}
+          content={`${content} Refresca la pantalla para actualizar cambios.`}
+          header={header}
+          success
+        />
       )}
     </>
   );

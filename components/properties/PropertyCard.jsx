@@ -4,7 +4,7 @@ import { Card, Divider, Grid, Menu } from "semantic-ui-react";
 import Link from "next/link";
 import LikeButton from "./actions/LikeButton";
 
-export default function PropertyCard({ propertyInfo }) {
+export default function PropertyCard({ propertyInfo, isAdmin }) {
   const {
     uuid,
     images,
@@ -13,12 +13,14 @@ export default function PropertyCard({ propertyInfo }) {
     location,
     bathrooms,
     bedrooms,
-    square_meters,
+    construction_area,
     likes_info: likesInfo,
   } = propertyInfo;
   const { city, state } = location;
 
-  const imgUri = `${axios.defaults.baseURL}${images[0]}`;
+  const { image_url: imageUrl } = images ? images[0] : [];
+
+  const imgUri = imageUrl ? `${axios.defaults.baseURL}${imageUrl}` : null;
   return (
     <Grid.Column style={{ paddingTop: "16px" }}>
       <Card centered fluid id={uuid}>
@@ -34,15 +36,17 @@ export default function PropertyCard({ propertyInfo }) {
 
           <Divider hidden fitted />
 
-          <Card.Content>
-            <Menu borderless className="simple">
-              <LikeButton likesInfo={likesInfo} propertyId={uuid} />
-            </Menu>
-          </Card.Content>
+          {!isAdmin && (
+            <Card.Content>
+              <Menu borderless className="simple">
+                <LikeButton likesInfo={likesInfo} propertyId={uuid} />
+              </Menu>
+            </Card.Content>
+          )}
 
           <Card.Meta>
             <span>
-              | {square_meters} mts<sup>2</sup> | {bedrooms} Recámara(s) |{" "}
+              | {construction_area} mts<sup>2</sup> | {bedrooms} Recámara(s) |{" "}
               {bathrooms} Baño(s) |
             </span>
           </Card.Meta>

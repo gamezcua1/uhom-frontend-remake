@@ -8,12 +8,11 @@ import Loading from "../../components/shared/loading";
 function PropertyShow() {
   const router = useRouter();
   const { propertyId } = router.query;
-  const { response, property } = usePropertyShow({
+  const { response, property, error } = usePropertyShow({
     propertyId,
   });
 
-  if (!response) return <Loading />;
-  if (!property)
+  if (error)
     return (
       <Error
         message="Parece que la propiedad que buscas no existe."
@@ -21,6 +20,7 @@ function PropertyShow() {
         redirectionMessage="Ver más propiedades."
       />
     );
+  if (!response) return <Loading />;
 
   return (
     <PropertyDetail

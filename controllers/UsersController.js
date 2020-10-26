@@ -3,10 +3,26 @@ import { setHeaders, setUserParams } from "../lib/helpers/requestFormatter";
 
 export default class UsersController {
   static update(uuid, user) {
-    return axios.patch(`/users/${uuid}`, setUserParams(user), setHeaders());
+    return axios.patch(
+      `/users/${uuid}`,
+      setUserParams(user),
+      setHeaders(null, {
+        "Content-Type": "multipart/form-data",
+      })
+    );
   }
 
   static create(user) {
-    return axios.post("/signin", { user });
+    return axios.post(
+      "/signin",
+      setUserParams(user),
+      setHeaders(null, {
+        "Content-Type": "multipart/form-data",
+      })
+    );
+  }
+
+  static block(user) {
+    return axios.delete(`users/${user}`, setHeaders(null, {}));
   }
 }

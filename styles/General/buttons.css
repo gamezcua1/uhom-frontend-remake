@@ -20,3 +20,11 @@
 .button-container {
   justify-content: space-between;
 }
+
+.btn-fluid-actions > button {
+  margin-top: 0.5rem !important;
+}
+
+.btn-fluid-actions > button:first-of-type {
+  margin-top: 0 !important;
+}

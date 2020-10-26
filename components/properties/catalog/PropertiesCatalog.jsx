@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
-
+import React, { useEffect, useState, useContext } from "react";
 import { getTotalPages } from "../../../lib/services/PaginationService";
 import PropertiesList from "../PropertiesList";
 import Banner from "../../layout/Banner";
 import Loading from "../../shared/loading";
+import { UserContext } from "../../../lib/context/UserContext";
 
 const PropertiesCatalog = ({
   currentPage,
@@ -15,6 +15,7 @@ const PropertiesCatalog = ({
   totalItems,
 }) => {
   const [totalPages, setTotalPages] = useState(1);
+  const { isAdmin } = useContext(UserContext);
 
   const updateTotalPages = () => {
     const tmpTotalPages = getTotalPages(totalItems, itemsPerPage);
@@ -27,7 +28,7 @@ const PropertiesCatalog = ({
 
   const handlePageChange = (_event, data) => {
     const { activePage } = data;
-    setCurrentPage(activePage);
+    setCurrentPage({ page: activePage });
   };
 
   const paginationProps = {
@@ -44,6 +45,7 @@ const PropertiesCatalog = ({
       <PropertiesList
         properties={properties}
         paginationProps={paginationProps}
+        isAdmin={isAdmin()}
       />
     );
 };

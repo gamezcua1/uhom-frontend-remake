@@ -18,6 +18,9 @@
 @import './General/hero/hero.css';
 @import './General/hero/banner.css';
 @import './General/hero/title.css';
+@import './General/users.scss';
+@import './General/avatar.css';
+@import "~react-image-gallery/styles/scss/image-gallery.scss";
 
 body {
   margin: 0;
@@ -32,4 +35,43 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+
+$screen-md-min: 767px;
+
+@mixin md {
+  @media (min-width: #{$screen-md-min}) {
+    @content;
+  }
+}
+
+.navbar-desktop {
+  display: none;
+}
+
+.navbar-mobile {
+  background-color: var(--offWhite);
+
+  > div {
+    margin: 0 !important;
+
+    > .column {
+      padding: 0 !important;
+
+      > .pushable {
+        background: none;
+      }
+    }
+  }
+}
+
+@include md {
+  .navbar-mobile {
+    display: none;
+  }
+
+  .navbar-desktop {
+    display: block;
+  }
 }

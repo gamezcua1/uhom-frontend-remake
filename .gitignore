@@ -3,6 +3,10 @@
 # preferences
 .vscode
 cypress/*/examples
+public/sw.js
+public/sw.js.map
+public/workbox-*.js
+public/workbox-*.js.map
 
 # dependencies
 /node_modules
@@ -27,3 +31,6 @@ yarn-debug.log*
 yarn-error.log*
 
 .next
+cypress/screenshots
+cypress/videos
+.jshintrc

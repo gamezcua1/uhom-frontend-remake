@@ -6,7 +6,7 @@ export default function FormLogoHeader(props) {
 
   return (
     <Segment basic textAlign="center" className="form-logo-segment">
-      <Image src="/images/logos/NamedYellowLogo.png" size="small" centered />
+      <Image src="/images/logos/NamedYellowLogo.webp" size="small" centered />
       <h3>{message || ""}</h3>
     </Segment>
   );

@@ -15,6 +15,7 @@ const InfoPane = ({ userId, bearerToken }) => {
   const { user, error } = useUserInfo(userId, bearerToken);
 
   const handleEdition = () => setEdition(!isEditable);
+  const isSameUser = () => currentUser.uuid === userId;
 
   const updateUserInfo = (data) => {
     const cleanData = cleanEmpties(data);
@@ -32,7 +33,7 @@ const InfoPane = ({ userId, bearerToken }) => {
       <Header as="h1" textAlign="center">
         Información general
       </Header>
-      {isEditable ? (
+      {isEditable && isSameUser() ? (
         <UserForm
           user={user}
           closeForm={handleEdition}
@@ -44,7 +45,11 @@ const InfoPane = ({ userId, bearerToken }) => {
           submitionHandler={updateUserInfo}
         />
       ) : (
-        <UserInfo user={user} handleEdition={handleEdition} />
+        <UserInfo
+          user={user}
+          handleEdition={handleEdition}
+          canEdit={isSameUser()}
+        />
       )}
     </Container>
   );

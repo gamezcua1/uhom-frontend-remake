@@ -3,20 +3,18 @@ import { Dropdown, Image } from "semantic-ui-react";
 import { LogoutService } from "../../lib/services/session/AuthService";
 import { UserContext } from "../../lib/context/UserContext";
 import { useRouter } from "next/router";
+import { useUserAvatar } from "../../lib/hooks/users";
 
 const Avatar = () => {
   const { logout, token, currentUser } = useContext(UserContext);
-  const BASE_URI = `/user/${currentUser.uuid}`;
+  const BASE_URI = `/users/${currentUser.uuid}`;
+  const avatar = useUserAvatar(currentUser);
 
   const router = useRouter();
 
   const trigger = (
-    <span>
-      <Image
-        avatar
-        src="https://en.gravatar.com/userimage/191265949/d6b5b62c51acb05d460a4b6f39610410.png?size=100"
-        size="mini"
-      />
+    <span id="loggedUserAvatar">
+      <Image src={avatar} size="mini" className="custom-avatar" />
     </span>
   );
 
@@ -28,12 +26,13 @@ const Avatar = () => {
   return (
     <div>
       <Dropdown trigger={trigger} pointing="top right" icon={null}>
-        <Dropdown.Menu>
+        <Dropdown.Menu id="loggedUserMenu">
           <Dropdown.Header content={`¡Hola, ${currentUser.names}! `} />
 
           <Dropdown.Divider />
 
           <Dropdown.Item
+            id="userProfile"
             icon="user"
             text="Mi Perfil"
             onClick={() => router.push(`${BASE_URI}?tab=info`)}
@@ -50,6 +49,7 @@ const Avatar = () => {
           <Dropdown.Item icon="conversation" text="FAQ's" />
           <Dropdown.Divider />
           <Dropdown.Item
+            className="logout"
             onClick={handleLogout}
             icon={{ name: "sign out", color: "red" }}
             text="Cerrar Sesión"

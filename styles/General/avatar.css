@@ -1,0 +1,11 @@
+.ui.image.custom-avatar {
+  display: inline-block;
+  height: 45px;
+  width: 45px;
+  border-radius: 500rem;
+}
+
+.ui.small.image.medium-avatar {
+  height: 150px;
+  width: 150px;
+}

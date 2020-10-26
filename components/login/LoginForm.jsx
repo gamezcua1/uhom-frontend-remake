@@ -26,7 +26,7 @@ const LoginForm = () => {
   };
 
   return (
-    <Form className="large dark" onSubmit={handleSubmit(submit)}>
+    <Form className="large dark" id="login" onSubmit={handleSubmit(submit)}>
       {errors.invalidKeys && (
         <p className="dark-error fluid-error">{errors.invalidKeys.message}</p>
       )}

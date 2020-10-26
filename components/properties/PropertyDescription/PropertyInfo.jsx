@@ -54,7 +54,7 @@ export default function PropertyInfo({ propertyInfo, propertyLocation }) {
         <Segment>
           {(!isAdmin() && (
             <AppopinmentButton address={address} price={price} />
-          )) || <AdminActions />}
+          )) || <AdminActions uuid={uuid} />}
         </Segment>
       </Segment.Group>
     </Grid.Column>

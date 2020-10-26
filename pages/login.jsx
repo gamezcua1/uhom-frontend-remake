@@ -19,7 +19,7 @@ function Login() {
       <LoginForm />
       <p className="general-callout">
         ¿Aún no tienes cuenta?
-        <Link href="/signin" passHref>
+        <Link href="/signup" passHref>
           <a> Registrate aquí. </a>
         </Link>
       </p>

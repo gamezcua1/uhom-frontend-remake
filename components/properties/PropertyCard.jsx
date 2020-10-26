@@ -18,9 +18,9 @@ export default function PropertyCard({ propertyInfo, isAdmin }) {
   } = propertyInfo;
   const { city, state } = location;
 
-  const { image_url: imageUrl } = images[0];
+  const { image_url: imageUrl } = images ? images[0] : [];
 
-  const imgUri = `${axios.defaults.baseURL}${imageUrl}`;
+  const imgUri = imageUrl ? `${axios.defaults.baseURL}${imageUrl}` : null;
   return (
     <Grid.Column style={{ paddingTop: "16px" }}>
       <Card centered fluid id={uuid}>

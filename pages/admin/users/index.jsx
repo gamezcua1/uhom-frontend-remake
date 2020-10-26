@@ -5,6 +5,7 @@ import UsersList from "../../../components/users/UsersList";
 import { useRouter } from "next/router";
 import { Container } from "semantic-ui-react";
 import Filter from "../../../components/users/actions/Filter";
+import useAdminPermissions from "../../../lib/hooks/admins";
 
 const UsersIndex = () => {
   const router = useRouter();
@@ -13,6 +14,8 @@ const UsersIndex = () => {
     router.asPath.replace("/admin", ""),
     token
   );
+
+  useAdminPermissions();
 
   const getUsers = ({ page, filter }) =>
     router.push({

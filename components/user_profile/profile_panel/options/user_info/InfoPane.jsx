@@ -37,12 +37,10 @@ const InfoPane = ({ userId, bearerToken }) => {
         <UserForm
           user={user}
           closeForm={handleEdition}
-          isCancelable={true}
-          submitMessage="Actualizar"
-          iconName="edit"
           required={false}
           responseErrors={responseErrors}
           submitionHandler={updateUserInfo}
+          action="UPDATE_USER"
         />
       ) : (
         <UserInfo

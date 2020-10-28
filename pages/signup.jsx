@@ -41,6 +41,8 @@ const signup = () => {
         submitMessage="Registrarse"
         submitionHandler={handleSignUp}
         responseErrors={responseErrors}
+        action="ADD_USER"
+        isCancelable={false}
       />
 
       <p className="general-callout">

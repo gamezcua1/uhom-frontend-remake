@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useRouter } from "next/router";
 import { Header, Segment } from "semantic-ui-react";
-import PropertyForm from "../../../../components/properties/form/PropertyForm";
+import PropertyForm from "../../../../components/properties/form/index";
 import useAdminPermissions from "../../../../lib/hooks/admins";
 import { usePropertyShow } from "../../../../lib/hooks/properties";
 import Loading from "../../../../components/shared/loading";
@@ -58,8 +58,7 @@ const PropertyShow = () => {
           defaultProperty={property}
           responseErrors={responseErrors}
           submitionHandler={updateProperty}
-          icon="edit"
-          buttonMessage="Actualizar cambios"
+          action="UPDATE_PROPERTY"
         />
       </Segment>
     </GenericContainer>

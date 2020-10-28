@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Header, Segment } from "semantic-ui-react";
-import PropertyForm from "../../../components/properties/form/PropertyForm";
+import PropertyForm from "../../../components/properties/form/index";
 import GenericContainer from "../../../components/shared/Container";
 import GenericSuccessMessage from "../../../components/shared/GenericSuccessMessage";
 import PropertiesController from "../../../controllers/PropertiesController";
@@ -34,8 +34,7 @@ const Index = () => {
         <PropertyForm
           responseErrors={responseErrors}
           submitionHandler={handlePropertyAdd}
-          buttonMessage="Agregar propiedad"
-          icon="add"
+          action="ADD_PROPERTY"
         />
       </Segment>
     </GenericContainer>

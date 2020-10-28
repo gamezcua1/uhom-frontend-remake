@@ -1,7 +1,8 @@
 import { useRouter } from "next/router";
 import React, { useState } from "react";
-import { Container, Header } from "semantic-ui-react";
+import { Header } from "semantic-ui-react";
 import ImagesForm from "../../../../components/properties_images/ImagesForm";
+import GenericContainer from "../../../../components/shared/Container";
 import Error from "../../../../components/shared/error";
 import GenericSuccessMessage from "../../../../components/shared/GenericSuccessMessage";
 import Loading from "../../../../components/shared/loading";
@@ -38,7 +39,7 @@ const ImagesIndex = () => {
   if (!response) return <Loading />;
 
   return (
-    <Container className="users-list">
+    <GenericContainer>
       <GenericSuccessMessage
         isVisible={isSuccess}
         setVisible={setSuccess}
@@ -52,7 +53,7 @@ const ImagesIndex = () => {
         submitionHandler={updateImage}
         responseErrors={responseErrors}
       />
-    </Container>
+    </GenericContainer>
   );
 };
 

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useRouter } from "next/router";
-import { Container, Header, Segment } from "semantic-ui-react";
+import { Header, Segment } from "semantic-ui-react";
 import PropertyForm from "../../../../components/properties/form/PropertyForm";
 import useAdminPermissions from "../../../../lib/hooks/admins";
 import { usePropertyShow } from "../../../../lib/hooks/properties";
@@ -9,6 +9,7 @@ import Error from "../../../../components/shared/error";
 import { cleanEmpties } from "../../../../lib/hooks/dataFormater";
 import PropertiesController from "../../../../controllers/PropertiesController";
 import GenericSuccessMessage from "../../../../components/shared/GenericSuccessMessage";
+import GenericContainer from "../../../../components/shared/Container";
 
 const PropertyShow = () => {
   useAdminPermissions();
@@ -39,7 +40,7 @@ const PropertyShow = () => {
   if (!response) return <Loading />;
 
   return (
-    <Container>
+    <GenericContainer>
       <Segment basic>
         <GenericSuccessMessage
           header="Actualización exitosa"
@@ -61,7 +62,7 @@ const PropertyShow = () => {
           buttonMessage="Actualizar cambios"
         />
       </Segment>
-    </Container>
+    </GenericContainer>
   );
 };
 

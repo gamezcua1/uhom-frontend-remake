@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { Container, Header, Segment } from "semantic-ui-react";
+import { Header, Segment } from "semantic-ui-react";
 import PropertyForm from "../../../components/properties/form/PropertyForm";
+import GenericContainer from "../../../components/shared/Container";
 import GenericSuccessMessage from "../../../components/shared/GenericSuccessMessage";
 import PropertiesController from "../../../controllers/PropertiesController";
 import useAdminPermissions from "../../../lib/hooks/admins";
@@ -17,7 +18,7 @@ const Index = () => {
   };
 
   return (
-    <Container className="users-list">
+    <GenericContainer>
       <GenericSuccessMessage
         header="Registro exitoso"
         content="La propiedad ha sido registrada exitosamente. En la sección de 'Propiedades' verás los cambios."
@@ -37,7 +38,7 @@ const Index = () => {
           icon="add"
         />
       </Segment>
-    </Container>
+    </GenericContainer>
   );
 };
 

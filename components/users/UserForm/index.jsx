@@ -24,8 +24,6 @@ const UserForm = ({
     resolver: setFormResolver(resolver),
   });
 
-  console.log(withoutModal);
-
   useErrorsAfterSubmit(responseErrors, setError);
 
   const setValue = (field) =>

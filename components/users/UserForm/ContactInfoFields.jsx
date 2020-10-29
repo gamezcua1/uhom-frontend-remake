@@ -1,7 +1,8 @@
 import React from "react";
 import Cleave from "cleave.js/react";
-import { Form } from "semantic-ui-react";
+import { Dropdown, Form } from "semantic-ui-react";
 import { Controller } from "react-hook-form";
+import { invitationRoles } from "../../../lib/services/UsersOptions";
 
 const ContactInfoFields = ({
   control,
@@ -9,6 +10,7 @@ const ContactInfoFields = ({
   required,
   register,
   setValue,
+  isInvitable,
 }) => (
   <>
     <Form.Group widths="equal">
@@ -51,41 +53,66 @@ const ContactInfoFields = ({
           <p className="dark-error">{errors.phone_number.message}</p>
         )}
       </Form.Field>
+
+      {isInvitable && (
+        <Form.Field required={required}>
+          <label htmlFor="role"> Rol: </label>
+          <Controller
+            control={control}
+            name="role"
+            render={({ onChange }) => (
+              <Dropdown
+                placeholder="Selecciona el rol"
+                clearable
+                search
+                selection
+                ref={register}
+                options={invitationRoles}
+                onChange={(_e, { value }) => onChange(value)}
+              />
+            )}
+          />
+
+          {errors.role && <p className="dark-error">{errors.role.message}</p>}
+        </Form.Field>
+      )}
     </Form.Group>
 
-    <Form.Group widths="equal">
-      <Form.Field required={required}>
-        <label htmlFor="password"> Contraseña: </label>
-        <div className="ui input">
-          <input
-            id="password"
-            name="password"
-            type="password"
-            placeholder="Contraseña"
-            ref={register}
-          />
-        </div>
-        {errors.password && (
-          <p className="dark-error">{errors.password.message}</p>
-        )}
-      </Form.Field>
+    {!isInvitable && (
+      <Form.Group widths="equal">
+        <Form.Field required={required}>
+          <label htmlFor="password"> Contraseña: </label>
+          <div className="ui input">
+            <input
+              id="password"
+              name="password"
+              type="password"
+              placeholder="Contraseña"
+              ref={register}
+            />
+          </div>
+          {errors.password && (
+            <p className="dark-error">{errors.password.message}</p>
+          )}
+        </Form.Field>
 
-      <Form.Field required={required}>
-        <label htmlFor="password_confirmation">Confirmar contraseña:</label>
-        <div className="ui input">
-          <input
-            id="password_confirmation"
-            name="password_confirmation"
-            type="password"
-            placeholder="Confirmar contraseña"
-            ref={register}
-          />
-        </div>
-        {errors.password_confirmation && (
-          <p className="dark-error">{errors.password_confirmation.message}</p>
-        )}
-      </Form.Field>
-    </Form.Group>
+        <Form.Field required={required}>
+          <label htmlFor="password_confirmation">Confirmar contraseña:</label>
+          <div className="ui input">
+            <input
+              id="password_confirmation"
+              name="password_confirmation"
+              type="password"
+              placeholder="Confirmar contraseña"
+              ref={register}
+            />
+          </div>
+          {errors.password_confirmation && (
+            <p className="dark-error">{errors.password_confirmation.message}</p>
+          )}
+        </Form.Field>
+      </Form.Group>
+    )}
   </>
 );
 

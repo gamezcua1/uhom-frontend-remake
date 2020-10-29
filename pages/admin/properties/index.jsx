@@ -5,6 +5,7 @@ import GenericContainer from "../../../components/shared/Container";
 import GenericSuccessMessage from "../../../components/shared/GenericSuccessMessage";
 import PropertiesController from "../../../controllers/PropertiesController";
 import useAdminPermissions from "../../../lib/hooks/admins";
+import { newPropertyValidations } from "../../../lib/validations/PropertiesValidationsSchemas";
 
 const Index = () => {
   useAdminPermissions();
@@ -35,6 +36,7 @@ const Index = () => {
           responseErrors={responseErrors}
           submitionHandler={handlePropertyAdd}
           action="ADD_PROPERTY"
+          resolver={newPropertyValidations}
         />
       </Segment>
     </GenericContainer>

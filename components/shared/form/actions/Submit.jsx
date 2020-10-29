@@ -2,7 +2,7 @@ import React from "react";
 import { Button } from "semantic-ui-react";
 import GenericModal from "../../GenericModal";
 
-const Submit = ({ submitProps, handleSubmit, onSubmit }) => {
+const Submit = ({ submitProps, handleSubmit, onSubmit, withoutModal }) => {
   const {
     iconName,
     submitMessage,
@@ -12,19 +12,24 @@ const Submit = ({ submitProps, handleSubmit, onSubmit }) => {
     modalIcon,
   } = submitProps;
 
-  const submitButton = (
+  const submitButton = (onClick = false) => (
     <Button
       id={submitId}
       className="btn-login"
       type="submit"
       icon={iconName}
       content={submitMessage}
+      {...(onClick && {
+        onClick: handleSubmit(onClick),
+      })}
     />
   );
 
+  if (withoutModal) return submitButton(true);
+
   return (
     <GenericModal
-      button={submitButton}
+      button={submitButton()}
       iconName={modalIcon}
       onAccept={handleSubmit(onSubmit)}
       title={modalTitle}

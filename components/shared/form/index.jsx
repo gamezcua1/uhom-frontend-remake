@@ -12,6 +12,7 @@ const GenericForm = ({
   onClose,
   isCancelable = true,
   action,
+  withoutModal = false,
 }) => {
   const {
     iconName,
@@ -33,6 +34,7 @@ const GenericForm = ({
           modalTitle,
           modalIcon,
         }}
+        withoutModal={withoutModal}
         handleSubmit={handleSubmit}
         onSubmit={onSubmit}
         onClose={onClose}

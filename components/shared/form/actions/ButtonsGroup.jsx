@@ -9,12 +9,14 @@ const ButtonsGroup = ({
   onSubmit,
   onClose,
   isCancelable,
+  withoutModal,
 }) => (
   <div className="fluid">
     <Submit
       submitProps={submitProps}
       onSubmit={onSubmit}
       handleSubmit={handleSubmit}
+      withoutModal={withoutModal}
     />
     {isCancelable && (
       <>

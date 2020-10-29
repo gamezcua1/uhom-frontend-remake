@@ -1,10 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { Form } from "semantic-ui-react";
-import {
-  notRequiredValidations,
-  signupValidations,
-} from "../../../lib/validations/ValidationsSchemas";
 import { setFormResolver } from "../../../lib/validations/resolver";
 import PersonalInfoFields from "./PersonalInfoFields";
 import ContactInfoFields from "./ContactInfoFields";
@@ -14,20 +10,21 @@ import GenericForm from "../../shared/form";
 const UserForm = ({
   user,
   isCancelable,
+  isInvitable,
+  resolver,
   closeForm,
   submitionHandler,
   responseErrors,
   required = true,
   customClasses,
   action,
+  withoutModal,
 }) => {
   const { control, errors, handleSubmit, register, setError } = useForm({
-    resolver: setFormResolver(
-      required,
-      signupValidations,
-      notRequiredValidations
-    ),
+    resolver: setFormResolver(resolver),
   });
+
+  console.log(withoutModal);
 
   useErrorsAfterSubmit(responseErrors, setError);
 
@@ -43,11 +40,14 @@ const UserForm = ({
       isCancelable={isCancelable}
       action={action}
       onClose={closeForm}
+      withoutModal={withoutModal}
     >
-      <Form.Field>
-        <label htmlFor="avatar">Avatar:</label>
-        <input type="file" name="avatar" accept="image/*" ref={register} />
-      </Form.Field>
+      {!isInvitable && (
+        <Form.Field>
+          <label htmlFor="avatar">Avatar:</label>
+          <input type="file" name="avatar" accept="image/*" ref={register} />
+        </Form.Field>
+      )}
 
       <PersonalInfoFields
         register={register}
@@ -62,6 +62,7 @@ const UserForm = ({
         required={required}
         register={register}
         setValue={setValue}
+        isInvitable={isInvitable}
       />
     </GenericForm>
   );

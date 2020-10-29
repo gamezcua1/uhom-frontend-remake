@@ -1,6 +1,5 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { newPropertyValidations } from "../../../lib/validations/PropertiesValidationsSchemas";
 import PropertyFeaturesFields from "./PropertyFeaturesFields";
 import PropertyImagesField from "./PropertyImagesField";
 import LandFeaturesFields from "./LandFeaturesFields";
@@ -17,9 +16,10 @@ const PropertyForm = ({
   willUpdate,
   defaultProperty,
   action,
+  resolver,
 }) => {
   const { errors, handleSubmit, register, setError, control } = useForm({
-    resolver: setFormResolver(required, newPropertyValidations, null),
+    resolver: setFormResolver(resolver),
   });
 
   useErrorsAfterSubmit(responseErrors, setError);

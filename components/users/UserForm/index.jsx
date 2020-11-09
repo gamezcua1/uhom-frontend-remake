@@ -11,6 +11,7 @@ const UserForm = ({
   user,
   isCancelable,
   isInvitable,
+  isInvited,
   resolver,
   closeForm,
   submitionHandler,
@@ -61,6 +62,7 @@ const UserForm = ({
         register={register}
         setValue={setValue}
         isInvitable={isInvitable}
+        isInvited={isInvited}
       />
     </GenericForm>
   );

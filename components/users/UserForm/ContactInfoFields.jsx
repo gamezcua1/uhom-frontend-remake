@@ -11,48 +11,53 @@ const ContactInfoFields = ({
   register,
   setValue,
   isInvitable,
+  isInvited,
 }) => (
   <>
     <Form.Group widths="equal">
-      <Form.Field required={required}>
-        <label htmlFor="email"> Email: </label>
-        <div className="ui input">
-          <input
-            id="email"
-            name="email"
-            type="email"
-            placeholder="Email"
-            ref={register}
-            defaultValue={setValue("email")}
-          />
-        </div>
-        {errors.email && <p className="dark-error">{errors.email.message}</p>}
-      </Form.Field>
+      {!isInvited && (
+        <Form.Field required={required}>
+          <label htmlFor="email"> Email: </label>
+          <div className="ui input">
+            <input
+              id="email"
+              name="email"
+              type="email"
+              placeholder="Email"
+              ref={register}
+              defaultValue={setValue("email")}
+            />
+          </div>
+          {errors.email && <p className="dark-error">{errors.email.message}</p>}
+        </Form.Field>
+      )}
 
-      <Form.Field required={required}>
-        <label htmlFor="phone_number"> Celular: </label>
-        <div className="ui input">
-          <Controller
-            as={
-              <Cleave
-                options={{
-                  numericOnly: true,
-                  blocks: [3, 3, 4],
-                  delimiter: "-",
-                }}
-                placeholder="Celular"
-              />
-            }
-            defaultValue={setValue("phone_number")}
-            name="phone_number"
-            control={control}
-            id="phone_number"
-          />
-        </div>
-        {errors.phone_number && (
-          <p className="dark-error">{errors.phone_number.message}</p>
-        )}
-      </Form.Field>
+      {!isInvitable && (
+        <Form.Field required={required}>
+          <label htmlFor="phone_number"> Celular: </label>
+          <div className="ui input">
+            <Controller
+              as={
+                <Cleave
+                  options={{
+                    numericOnly: true,
+                    blocks: [3, 3, 4],
+                    delimiter: "-",
+                  }}
+                  placeholder="Celular"
+                />
+              }
+              defaultValue={setValue("phone_number")}
+              name="phone_number"
+              control={control}
+              id="phone_number"
+            />
+          </div>
+          {errors.phone_number && (
+            <p className="dark-error">{errors.phone_number.message}</p>
+          )}
+        </Form.Field>
+      )}
 
       {isInvitable && (
         <Form.Field required={required}>

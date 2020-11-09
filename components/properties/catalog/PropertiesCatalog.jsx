@@ -15,7 +15,7 @@ const PropertiesCatalog = ({
   totalItems,
 }) => {
   const [totalPages, setTotalPages] = useState(1);
-  const { isAdmin } = useContext(UserContext);
+  const { isUser } = useContext(UserContext);
 
   const updateTotalPages = () => {
     const tmpTotalPages = getTotalPages(totalItems, itemsPerPage);
@@ -45,7 +45,7 @@ const PropertiesCatalog = ({
       <PropertiesList
         properties={properties}
         paginationProps={paginationProps}
-        isAdmin={isAdmin()}
+        isAdmin={isUser()}
       />
     );
 };

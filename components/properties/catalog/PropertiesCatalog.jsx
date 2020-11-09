@@ -45,7 +45,7 @@ const PropertiesCatalog = ({
       <PropertiesList
         properties={properties}
         paginationProps={paginationProps}
-        isAdmin={isUser()}
+        isUser={isUser()}
       />
     );
 };

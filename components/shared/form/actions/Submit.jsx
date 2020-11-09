@@ -12,24 +12,21 @@ const Submit = ({ submitProps, handleSubmit, onSubmit, withoutModal }) => {
     modalIcon,
   } = submitProps;
 
-  const submitButton = (onClick = false) => (
+  const submitButton = (
     <Button
       id={submitId}
       className="btn-login"
       type="submit"
       icon={iconName}
       content={submitMessage}
-      {...(onClick && {
-        onClick: handleSubmit(onClick),
-      })}
     />
   );
 
-  if (withoutModal) return submitButton(true);
+  if (withoutModal) return submitButton;
 
   return (
     <GenericModal
-      button={submitButton()}
+      button={submitButton}
       iconName={modalIcon}
       onAccept={handleSubmit(onSubmit)}
       title={modalTitle}

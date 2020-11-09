@@ -23,7 +23,11 @@ const GenericForm = ({
     modalIcon,
   } = setFormActions(action);
   return (
-    <Form id={id} className={`large ${customClasses || ""}`}>
+    <Form
+      id={id}
+      className={`large ${customClasses || ""}`}
+      {...(withoutModal && { onSubmit: handleSubmit(onSubmit) })}
+    >
       {children}
       <ButtonsGroup
         submitProps={{

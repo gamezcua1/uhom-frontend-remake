@@ -7,6 +7,7 @@ import { useUserInfo } from "../../../../../lib/hooks/users";
 import UsersController from "../../../../../controllers/UsersController";
 import { cleanEmpties } from "../../../../../lib/hooks/dataFormater";
 import { UserContext } from "../../../../../lib/context/UserContext";
+import { notRequiredValidations } from "../../../../../lib/validations/ValidationsSchemas";
 
 const InfoPane = ({ userId, bearerToken }) => {
   const { currentUser } = useContext(UserContext);
@@ -35,14 +36,13 @@ const InfoPane = ({ userId, bearerToken }) => {
       </Header>
       {isEditable && isSameUser() ? (
         <UserForm
+          resolver={notRequiredValidations}
           user={user}
           closeForm={handleEdition}
-          isCancelable={true}
-          submitMessage="Actualizar"
-          iconName="edit"
           required={false}
           responseErrors={responseErrors}
           submitionHandler={updateUserInfo}
+          action="UPDATE_USER"
         />
       ) : (
         <UserInfo

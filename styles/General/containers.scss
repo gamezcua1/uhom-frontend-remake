@@ -1,0 +1,18 @@
+$dark-font-color: #ffffff;
+$font-size: 1.25em;
+
+.ui.container.text{
+  font-size: $font-size;
+  margin-left: auto;
+  li {
+    margin-left: 2em;
+  }
+
+  ul{
+    padding: 1em;
+  }
+}
+
+.ui.container.dark{
+  color: $dark-font-color;
+}

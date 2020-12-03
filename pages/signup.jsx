@@ -7,6 +7,7 @@ import FormLogoHeader from "../components/shared/FormLogoHeader";
 import UsersController from "../controllers/UsersController";
 import { LoginService } from "../lib/services/session/AuthService";
 import { cleanEmpties } from "../lib/hooks/dataFormater";
+import { signupValidations } from "../lib/validations/ValidationsSchemas";
 
 const signup = () => {
   const { currentUser, isLoggedIn, login } = useContext(UserContext);
@@ -36,11 +37,13 @@ const signup = () => {
     <div className="dark-bg-solid">
       <FormLogoHeader message="Registrate con nosotros" />
       <UserForm
+        resolver={signupValidations}
         customClasses="dark"
-        iconName="home"
-        submitMessage="Registrarse"
         submitionHandler={handleSignUp}
         responseErrors={responseErrors}
+        action="ADD_USER"
+        isCancelable={false}
+        withoutModal
       />
 
       <p className="general-callout">

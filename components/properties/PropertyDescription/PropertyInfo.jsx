@@ -9,7 +9,7 @@ import { UserContext } from "../../../lib/context/UserContext";
 import AdminActions from "../actions/AdminActions";
 
 export default function PropertyInfo({ propertyInfo, propertyLocation }) {
-  const { isAdmin } = useContext(UserContext);
+  const { isUser, isAdmin } = useContext(UserContext);
   const {
     uuid,
     address,
@@ -33,7 +33,7 @@ export default function PropertyInfo({ propertyInfo, propertyLocation }) {
           fullAddress={`${address}, ${city}, ${state}.`}
         />
 
-        {!isAdmin() && (
+        {isUser() && (
           <Menu borderless secondary>
             <LikeButton likesInfo={likes_info} propertyId={uuid} />
           </Menu>

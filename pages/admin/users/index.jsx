@@ -3,9 +3,9 @@ import { useUserIndex } from "../../../lib/hooks/users";
 import { UserContext } from "../../../lib/context/UserContext";
 import UsersList from "../../../components/users/UsersList";
 import { useRouter } from "next/router";
-import { Container } from "semantic-ui-react";
-import Filter from "../../../components/users/actions/Filter";
 import useAdminPermissions from "../../../lib/hooks/admins";
+import UsersPanelOptions from "../../../components/users/actions/UsersPanelOptions";
+import GenericContainer from "../../../components/shared/Container";
 
 const UsersIndex = () => {
   const router = useRouter();
@@ -28,10 +28,10 @@ const UsersIndex = () => {
     });
 
   return (
-    <Container className="users-list">
-      <Filter getUsers={getUsers} filters={router.query} />
-      <UsersList getUsers={getUsers} users={users} error={error} />;
-    </Container>
+    <GenericContainer>
+      <UsersPanelOptions getUsers={getUsers} filters={router.query} />
+      <UsersList getUsers={getUsers} users={users} error={error} />
+    </GenericContainer>
   );
 };
 

@@ -1,16 +1,13 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useForm } from "react-hook-form";
-import { Divider, Form } from "semantic-ui-react";
-import { newPropertyValidations } from "../../../lib/validations/PropertiesValidationsSchemas";
 import PropertyFeaturesFields from "./PropertyFeaturesFields";
 import PropertyImagesField from "./PropertyImagesField";
 import LandFeaturesFields from "./LandFeaturesFields";
 import ExtraDescription from "./ExtraDescription";
-import { validationsAfterSubmit } from "../../../lib/validations/ValidationsSchemas";
 import UpdateImagesButton from "./actions/UpdateImagesButton";
 import { setFormResolver } from "../../../lib/validations/resolver";
-import SubmitPropertyButton from "./actions/SubmitPropertyButton";
-import GoBackButton from "../../shared/GoBackButton";
+import { useErrorsAfterSubmit } from "../../../lib/hooks/forms";
+import GenericForm from "../../shared/form";
 
 const PropertyForm = ({
   submitionHandler,
@@ -18,23 +15,22 @@ const PropertyForm = ({
   required = true,
   willUpdate,
   defaultProperty,
-  icon,
-  buttonMessage,
+  action,
+  resolver,
 }) => {
   const { errors, handleSubmit, register, setError, control } = useForm({
-    resolver: setFormResolver(required, newPropertyValidations, null),
+    resolver: setFormResolver(resolver),
   });
 
-  useEffect(() => {
-    if (responseErrors) {
-      validationsAfterSubmit(
-        responseErrors
-      ).forEach(({ name, type, message }) => setError(name, { type, message }));
-    }
-  }, [responseErrors]);
+  useErrorsAfterSubmit(responseErrors, setError);
 
   return (
-    <Form id="propertyForm" className="large">
+    <GenericForm
+      id="propertyForm"
+      handleSubmit={handleSubmit}
+      onSubmit={submitionHandler}
+      action={action}
+    >
       {willUpdate ? (
         <UpdateImagesButton propertyId={defaultProperty.uuid} />
       ) : (
@@ -54,19 +50,7 @@ const PropertyForm = ({
         defaultValues={defaultProperty}
       />
       <ExtraDescription register={register} defaultValues={defaultProperty} />
-
-      <div className="fluid">
-        <SubmitPropertyButton
-          handleSubmit={handleSubmit}
-          submitionHandler={submitionHandler}
-          buttonMessage={buttonMessage}
-          icon={icon}
-          willUpdate={willUpdate}
-        />
-        <Divider hidden />
-        <GoBackButton />
-      </div>
-    </Form>
+    </GenericForm>
   );
 };
 

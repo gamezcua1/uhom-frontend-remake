@@ -4,7 +4,7 @@ import { Card, Divider, Grid, Menu } from "semantic-ui-react";
 import Link from "next/link";
 import LikeButton from "./actions/LikeButton";
 
-export default function PropertyCard({ propertyInfo, isAdmin }) {
+export default function PropertyCard({ propertyInfo, isUser }) {
   const {
     uuid,
     images,
@@ -36,9 +36,9 @@ export default function PropertyCard({ propertyInfo, isAdmin }) {
 
           <Divider hidden fitted />
 
-          {!isAdmin && (
+          {isUser && (
             <Card.Content>
-              <Menu borderless className="simple">
+              <Menu borderless secondary>
                 <LikeButton likesInfo={likesInfo} propertyId={uuid} />
               </Menu>
             </Card.Content>
